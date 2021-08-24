@@ -63,10 +63,10 @@
     "webpack-dev-server": "^4.0.0"
   },
   "dependencies": {
-    "esri-loader": "^3.2.0",
-    "react": "^17.0.2",
-    "react-arcgis": "^3.3.3",
-    "react-dom": "^17.0.2",
+    "@esri/react-arcgis": "^5.1.0",
+    "esri-loader": "^2.16.0",
+    "react": "^16.13.0",
+    "react-dom": "^16.13.0",
     "react-router-dom": "^5.2.0"
   }
 }
