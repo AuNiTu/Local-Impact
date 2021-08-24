@@ -7,6 +7,7 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   // state here
   const [selectedItem, setSelectedItem] = useState('');
+  const [location, setLocation] = useState('');
 
   // useEffect to trigger fetch here
 
