@@ -4,7 +4,7 @@ import React from 'react';
 const Map = () => {
   return (
     <iframe
-      width="max"
+      width="100%"
       height="600"
       frameBorder="0"
       scrolling="no"
