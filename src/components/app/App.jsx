@@ -1,5 +1,15 @@
 import React from 'react';
 
+import Header from '../constants/Header';
+import Footer from '../constants/Footer';
+import Map from '../arcGIS/Map';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Header />
+      <Map />
+      <Footer />
+    </>
+  );
 }
