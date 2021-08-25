@@ -7,12 +7,15 @@ const UserContext = createContext();
 export const UserProvider = ({ children }) => {
   // state here
   const [selectedItem, setSelectedItem] = useState('');
-  const [location, setLocation] = useState('');
+  const [location, setLocation] = useState({});
+  const [loading, setLoading] = useState(true);
 
   // useEffect to trigger fetch here
 
   return (
-    <UserContext.Provider value={{ selectedItem, setSelectedItem, location, setLocation }}>
+    <UserContext.Provider
+      value={{ selectedItem, setSelectedItem, location, setLocation }}
+    >
       {children}
     </UserContext.Provider>
   );
@@ -24,7 +27,7 @@ export const useInfo = () => {
   return { selectedItem, setSelectedItem };
 };
 
-export const locationInfo = () => {
+export const useGeoLocation = () => {
   const { location, setLocation } = useContext(UserContext);
   return { location, setLocation };
 };
