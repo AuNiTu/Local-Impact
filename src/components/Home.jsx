@@ -1,5 +1,6 @@
 import React from 'react';
 import { locationInfo } from '../state/Provider';
+import Video from './video/Video';
 
 const Home = () => {
 
@@ -37,6 +38,7 @@ const Home = () => {
 
   return (
     <>
+      <Video />
       <form onSubmit={handleSubmit}>
         <input type="number" placeholder="enter your zip code" value={location} onChange={handleChange}></input>
       </form>
