@@ -1,23 +1,26 @@
 import React from 'react';
-<<<<<<< HEAD:src/components/Home.jsx
-import { locationInfo } from '../state/Provider';
-import Video from './video/Video';
-=======
+import Video from '../video/Video';
 import { Link, useHistory } from 'react-router-dom';
-import { useGeoLocation } from '../../state/Provider';
->>>>>>> 7d5330a6b3e2d2e95f9b3782c484c6b069fcc684:src/components/home/Home.jsx
+import { useAddress, useGeoLocation } from '../../state/Provider';
+import { fetchAddress } from '../arcGIS/services/fetchLocation';
 
 const Home = () => {
   const { location, setLocation } = useGeoLocation();
+  const { address, setAddress } = useAddress();
   const history = useHistory();
 
   const handleChange = ({ target }) => {
-    setLocation(target.value);
+    setAddress(target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    fetchAddress(e.value)
+      .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
+      .then(console.log(address))
+      .then(history.push('/map'));
   };
+
 
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
@@ -43,14 +46,12 @@ const Home = () => {
       <Video />
       <form onSubmit={handleSubmit}>
         <input
-          type="number"
-          placeholder="enter your zip code"
-          value={location}
+          type="text"
+          placeholder="where you at?"
+          value={address}
           onChange={handleChange}
         ></input>
-        <Link to="/map">
-          <button>Go to Map</button>
-        </Link>
+        <button>Go to Map</button>
       </form>
 
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
