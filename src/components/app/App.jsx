@@ -1,5 +1,18 @@
 import React from 'react';
 
+import Header from '../constants/Header';
+import Footer from '../constants/Footer';
+import Map from '../arcGIS/Map';
+
+// eslint-disable-next-line no-unused-vars
+import styles from './app.css';
+
 export default function App() {
-  return <h1>Hello World</h1>;
+  return (
+    <>
+      <Header />
+      <Map />
+      <Footer />
+    </>
+  );
 }
