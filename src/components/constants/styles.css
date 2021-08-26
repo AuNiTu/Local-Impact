@@ -21,18 +21,24 @@
 
 .Home input {
   height: 20px;
+  padding:1px;
+  padding-left: 4px;
 }
 
 .Home button {
   height: 24px;
+  border-radius: 1px;
+  padding: 3px;
 }
 
 .GetButton button {
   width: 8rem;
+  border-radius: 1px;
   position:fixed;
   top: 130px;
   left: 20px;
   padding: 2px;
+  padding-right: 4px;
   margin-right: 5px;
 
   
