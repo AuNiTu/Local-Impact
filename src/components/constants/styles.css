@@ -15,6 +15,36 @@
   font-style:italic
 }
 
+.Home {
+  padding: 20px;
+}
+
+.Home input {
+  height: 20px;
+}
+
+.Home button {
+  height: 24px;
+}
+
+.GetButton button {
+  width: 8rem;
+  position:fixed;
+  top: 130px;
+  left: 20px;
+  padding: 2px;
+  margin-right: 5px;
+
+  
+}
+
+.MissionStatement div {
+opacity: 88%;
+background-color: white;
+padding: 10px;
+margin-top: 50px;
+}
+
 footer {
   background-color:black;
   color:blanchedalmond;

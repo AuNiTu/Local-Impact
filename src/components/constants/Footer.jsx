@@ -3,7 +3,7 @@ import styles from './styles.css';
 
 const Footer = () => (
   <footer>
-    <p className={styles.Footer}>coded by Austin, Nick, and Tucker</p>
+    <p className={styles.Footer}>Coded by Austin, Nick, and Tucker</p>
   </footer>
 );
 
