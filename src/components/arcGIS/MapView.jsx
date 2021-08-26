@@ -2,6 +2,7 @@
 import React from 'react';
 import { useMap } from 'esri-loader-hooks';
 import { useGeoLocation } from '../../state/Provider';
+import MapViewVideo from '../video/MapViewVideo';
 
 function MapView() {
   const { location } = useGeoLocation();
@@ -18,7 +19,13 @@ function MapView() {
   };
 
   const [ref] = useMap(map, options);
-  return <div style={{ height: 400 }} ref={ref} />;
+  return (
+    <>
+      <MapViewVideo />
+      <div style={{ height: 400 }} ref={ref} />;
+    </>
+  );
+  
 }
 
 export default MapView;
