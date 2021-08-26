@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Video.css';
 
-const Video = () => {
+const MapViewVideo = () => {
   return (
     <section className={styles.Video}>
       <div className={styles.VideoContainer}>
@@ -9,7 +9,7 @@ const Video = () => {
           muted 
           loop 
           autoPlay 
-          src="https://res.cloudinary.com/duwtuqr0p/video/upload/v1629916997/pexels-ron-lach-9036211_zstzae.mp4"
+          src="https://res.cloudinary.com/duwtuqr0p/video/upload/v1629939914/video_1_ylqhhf.mp4"
           style={{
             position:'fixed',
             width: '100%',
@@ -28,4 +28,4 @@ const Video = () => {
 };
 
 
-export default Video;
+export default MapViewVideo;

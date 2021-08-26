@@ -1,6 +1,12 @@
 .Header {
-  background-color: aliceblue;
+  background-color: white;
   padding: 10px;
+  opacity: 60%;
+}
+
+.Header h1 {
+  color: #5ca08e;
+  font-family:'Playfair Display SC';
 }
 
 footer {
