@@ -12,19 +12,28 @@ export const UserProvider = ({ children }) => {
   const [location, setLocation] = useState({});
   const [loading, setLoading] = useState(true);
   const [address, setAddress] = useState('');
-
+  const [layer, setLayer] = useState('');
 
   // useEffect to trigger fetch here
 
   useEffect(() => {
     fetchAddress(address)
-      .then(res => setLocation({ longitude: res.x, latitude: res.y }))
+      .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
       .finally(() => setLoading(false));
   }, [address]);
 
   return (
     <UserContext.Provider
-      value={{ selectedItem, setSelectedItem, location, setLocation, address, setAddress }}
+      value={{
+        selectedItem,
+        setSelectedItem,
+        location,
+        setLocation,
+        address,
+        setAddress,
+        layer,
+        setLayer,
+      }}
     >
       {children}
     </UserContext.Provider>
@@ -45,4 +54,9 @@ export const useGeoLocation = () => {
 export const useAddress = () => {
   const { address, setAddress } = useContext(UserContext);
   return { address, setAddress };
+};
+
+export const useLayer = () => {
+  const { layer, setLayer } = useContext(UserContext);
+  return { layer, setLayer };
 };
