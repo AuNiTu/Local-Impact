@@ -28,7 +28,8 @@
 .Home button {
   height: 25px;
   position:fixed;
-  right: 46rem;
+  /* left: 30rem;
+  right: 46rem; */
   border-radius: 1px;
   padding: 3px;
 }
