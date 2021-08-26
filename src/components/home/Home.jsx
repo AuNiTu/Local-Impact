@@ -1,17 +1,21 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
-import { useGeoLocation } from '../../state/Provider';
+import Video from '../video/Video';
+import { useHistory } from 'react-router-dom';
+import { useAddress, useGeoLocation } from '../../state/Provider';
 
 const Home = () => {
   const { location, setLocation } = useGeoLocation();
+  const { address, setAddress } = useAddress();
   const history = useHistory();
 
+
   const handleChange = ({ target }) => {
-    setLocation(target.value);
+    setAddress(target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    history.push('/map');
   };
 
   const handleSubmitGeoLocation = (e) => {
@@ -35,16 +39,15 @@ const Home = () => {
 
   return (
     <>
+      <Video />
       <form onSubmit={handleSubmit}>
         <input
-          type="number"
-          placeholder="enter your zip code"
-          value={location}
+          type="text"
+          placeholder="where you at?"
+          value={address}
           onChange={handleChange}
         ></input>
-        <Link to="/map">
-          <button>Go to Map</button>
-        </Link>
+        <button>Go to Map</button>
       </form>
 
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
