@@ -1,13 +1,13 @@
 import React from 'react';
 import Video from '../video/Video';
-import { Link, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useAddress, useGeoLocation } from '../../state/Provider';
-import { fetchAddress } from '../arcGIS/services/fetchLocation';
 
 const Home = () => {
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
   const history = useHistory();
+
 
   const handleChange = ({ target }) => {
     setAddress(target.value);
@@ -15,12 +15,8 @@ const Home = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    fetchAddress(e.value)
-      .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
-      .then(console.log(address))
-      .then(history.push('/map'));
+    history.push('/map');
   };
-
 
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
