@@ -9,6 +9,12 @@
   font-family:'Playfair Display SC';
 }
 
+.Header h4 {
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-style:italic
+}
+
 footer {
   background-color: aliceblue;
   display: flex;
