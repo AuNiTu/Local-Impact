@@ -3,7 +3,6 @@ import { useSignup, useLogin } from '../../state/SessionProvider';
 import styles from './Login.css';
 
 export default function OneLogin() {
-
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [isSignUp, setSignUp] = useState(false);
@@ -32,7 +31,11 @@ export default function OneLogin() {
 
   return (
     <>
-      <button onClick={handleSwitch}>{isSignUp ? 'Already Signed up? Login' : 'Not Signed Up? Create Account'}</button>
+      <button onClick={handleSwitch}>
+        {isSignUp
+          ? 'Already Signed up? Login'
+          : 'Not Signed Up? Create Account'}
+      </button>
 
       <section className={styles.Login}>
         <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
@@ -44,7 +47,7 @@ export default function OneLogin() {
             onChange={handleChange}
           ></input>
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
             value={password}

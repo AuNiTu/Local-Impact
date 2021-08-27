@@ -1,6 +1,5 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
-import { useWebMap } from 'esri-loader-hooks';
 import { fetchAddress } from '../components/arcGIS/services/fetchLocation';
 
 // import fetches here
@@ -27,10 +26,6 @@ export const UserProvider = ({ children }) => {
       .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
       .finally(() => setLoading(false));
   }, [address]);
-
-  useEffect(() => {
-    console.log('useEffect because map changed', map);
-  }, [map]);
 
   return (
     <UserContext.Provider
