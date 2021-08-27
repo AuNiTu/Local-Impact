@@ -1,5 +1,4 @@
 const request = async (path, method, body) => {
-  
   const res = await fetch(`https://local-impact.herokuapp.com${path}`, {
     method,
     headers: body ? { 'Content-Type': 'application/json', } : {},
@@ -14,3 +13,4 @@ const request = async (path, method, body) => {
 };
 
 export const post = (path, body) => request(path, 'POST', body);
+export const get = (path) => request(path, 'GET');
