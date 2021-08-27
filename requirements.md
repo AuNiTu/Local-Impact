@@ -16,7 +16,7 @@ They enter a specific location, or have their location fetched. They are taken t
 4. Wildfires: user can see data/facts/action item
 5. Other action item(s)
 
-## Functional:
+## General Functional DataFlow:
 
 1. a user can login
 2. a user can input/update their location to display on map
