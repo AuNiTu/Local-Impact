@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useHistory, Route, Redirect } from 'react-router';
-import { postLogin, postSignup } from '../services/auth';
+import { postLogin, postSignup, getLogout } from '../services/auth';
 
 const SessionContext = createContext();
 
@@ -22,8 +22,12 @@ export const SessionProvider = ({ children }) => {
     // history.push('/map');
   };
 
+  const logout = async () => {
+    await getLogout();
+  };
+
   return (
-    <SessionContext.Provider value={{ session, loading, signup, login }}>
+    <SessionContext.Provider value={{ session, loading, signup, login, logout }}>
       {children}
     </SessionContext.Provider>
   );
@@ -57,4 +61,9 @@ export const useSignup = () => {
 export const useLogin = () => {
   const { login } = useContext(SessionContext);
   return login;
+};
+
+export const useLogout = () => {
+  const { logout } = useContext(SessionContext);
+  return logout;
 };

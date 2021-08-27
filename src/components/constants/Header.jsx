@@ -1,10 +1,16 @@
 import React from 'react';
 import OneLogin from '../home/OneLogin';
-import { useSession } from '../../state/SessionProvider';
+import { useSession, useLogout } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
 
 const Header = () => {
   const session = useSession();
+  const logout = useLogout();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    logout();
+  };
 
   return (
     <header className={styles.Header}>
@@ -12,7 +18,9 @@ const Header = () => {
         <h1>Local Impact</h1>
       </section>
       {session ? (
-        <button>Logout</button>
+        <form onSubmit={handleSubmit}>
+          <button>Logout</button>
+        </form>
       ) : (
         <section>
           <OneLogin />
