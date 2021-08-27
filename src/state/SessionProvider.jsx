@@ -24,6 +24,7 @@ export const SessionProvider = ({ children }) => {
 
   const logout = async () => {
     await getLogout();
+    setSession(null);
   };
 
   return (
