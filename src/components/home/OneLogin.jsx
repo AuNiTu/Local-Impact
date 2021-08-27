@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
-import { useLogin } from '../../state/SessionProvider';
+import { useSignup, useLogin } from '../../state/SessionProvider';
 import styles from './Login.css';
 
-function Login() {
+export default function OneLogin() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [isSignUp, setSignUp] = useState(false);
 
+  const signup = useSignup();
   const login = useLogin();
 
   const handleChange = ({ target }) => {
@@ -13,15 +15,30 @@ function Login() {
     if (target.name === 'password') setPassword(target.value);
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmitSignUp = async (event) => {
+    event.preventDefault();
+    signup(username, password);
+  };
+
+  const handleSubmitLogin = async (e) => {
     e.preventDefault();
     login(username, password);
   };
 
+  const handleSwitch = () => {
+    setSignUp(!isSignUp);
+  };
+
   return (
     <>
+      <button onClick={handleSwitch}>
+        {isSignUp
+          ? 'Already Signed up? Login'
+          : 'Not Signed Up? Create Account'}
+      </button>
+
       <section className={styles.Login}>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
           <input
             type="text"
             name="username"
@@ -29,19 +46,16 @@ function Login() {
             value={username}
             onChange={handleChange}
           ></input>
-
           <input
-            type="text"
+            type="password"
             name="password"
             placeholder="password"
             value={password}
             onChange={handleChange}
           ></input>
-          <button>🔑 Login</button>
+          {isSignUp ? <button>🔑 Signup</button> : <button>Login</button>}
         </form>
       </section>
     </>
   );
 }
-
-export default Login;

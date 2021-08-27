@@ -1,33 +1,31 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useEffect } from 'react';
 import { useHistory, Route, Redirect } from 'react-router';
 import { postLogin, postSignup } from '../services/auth';
 
 const SessionContext = createContext();
 
 export const SessionProvider = ({ children }) => {
-  const history = useHistory();
+  // const history = useHistory();
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
 
-
   const signup = async (username, password) => {
     const user = await postSignup(username, password);
     setSession(user);
-    history.push('/map');
+    // history.push('/map');
   };
 
   const login = async (username, password) => {
     setSession(await postLogin(username, password));
-    history.push('/map');
+    // history.push('/map');
   };
 
   return (
     <SessionContext.Provider value={{ session, loading, signup, login }}>
       {children}
     </SessionContext.Provider>
-
   );
 };
 
@@ -60,5 +58,3 @@ export const useLogin = () => {
   const { login } = useContext(SessionContext);
   return login;
 };
-
-
