@@ -5,5 +5,5 @@ export const postSignup = (username, password) => {
 };
 
 export const postLogin = (username, password) => {
-  return post('/api/auth/login', { username, password });
+  return post('/auth/login', { username, password });
 };

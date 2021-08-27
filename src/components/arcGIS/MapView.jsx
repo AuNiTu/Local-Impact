@@ -9,8 +9,6 @@ import AirSensorMap from './map/AirSensor';
 import DeforestationMap from './map/Deforestation';
 import AltFuelMap from './map/AltFuel';
 
-import MapViewVideo from '../video/MapViewVideo';
-
 function MapView() {
   const [Maps] = useState([
     <FireMap />,
