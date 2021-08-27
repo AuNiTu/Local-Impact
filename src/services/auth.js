@@ -9,5 +9,5 @@ export const postLogin = (username, password) => {
 };
 
 export const getLogout = () => {
-  get('/auth/logout');
+  return get('/auth/logout');
 };

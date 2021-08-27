@@ -7,7 +7,7 @@ const Header = () => {
   const session = useSession();
   const logout = useLogout();
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
     logout();
   };
