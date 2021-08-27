@@ -2,8 +2,7 @@ import React from 'react';
 import Video from '../video/Video';
 import { useHistory } from 'react-router-dom';
 import { useAddress, useGeoLocation } from '../../state/Provider';
-import styles from '../constants/styles.css';
-import Login from './Login';
+import styles from '../../styles/styles.css';
 
 const Home = () => {
   const { location, setLocation } = useGeoLocation();
