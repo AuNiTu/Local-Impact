@@ -5,9 +5,6 @@ import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from '../home/Home';
 import MapView from '../arcGIS/MapView';
 
-// eslint-disable-next-line no-unused-vars
-import styles from './app.css';
-
 export default function App() {
   return (
     <>

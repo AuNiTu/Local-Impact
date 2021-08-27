@@ -1,13 +1,10 @@
 const request = async (path, method, body) => {
-  const res = await fetch('postgres://AXDUONG:postgres@localhost:5432/postgres', {
+  
+  const res = await fetch(`https://local-impact.herokuapp.com${path}`, {
     method,
-    header: body
-      ? {
-        'Content-Type': 'application/json',
-      }
-      : {},
-    body: body ? JSON.stringify(body) : null,
-    credentials: 'include',
+    headers: body ? { 'Content-Type': 'application/json', } : {},
+    body: (body ? JSON.stringify(body) : null),
+    credentials: 'include'
   });
 
   if (!res.ok) throw await res.json();
