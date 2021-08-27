@@ -1,3 +1,68 @@
-header {
-  border: black, solid, 1px;
+.Header {
+  background-color: white;
+  padding: 10px;
+  opacity: 60%;
+}
+
+.Header h1 {
+  color: #5ca08e;
+  font-family:'Playfair Display SC';
+}
+
+.Header h4 {
+  font-family:'Times New Roman', Times, serif;
+  font-weight: 100;
+  font-style:italic
+}
+
+.Home {
+  padding: 20px;
+}
+
+.Home input {
+  height: 20px;
+  padding:1px;
+  padding-left: 4px;
+}
+
+.Home button {
+  height: 25px;
+  position:fixed;
+  /* left: 30rem;
+  right: 46rem; */
+  border-radius: 1px;
+  padding: 3px;
+}
+
+.GetButton button {
+  width: 8rem;
+  border-radius: 1px;
+  position:fixed;
+  top: 160px;
+  left: 20px;
+  padding-right: 4px;
+  margin-right: 5px;
+
+  
+}
+
+.MissionStatement div {
+opacity: 88%;
+background-color: white;
+padding: 10px;
+margin-top: 50px;
+}
+
+footer {
+  background-color:black;
+  color:blanchedalmond;
+  opacity: 70%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  position: fixed;
+  width: 100%;
+  padding: 2px;
+  margin-right: 5px;
+  bottom: 0;
 }

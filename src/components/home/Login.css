@@ -1,0 +1,15 @@
+.Login input {
+    height: 23px;
+    margin: 1.5px;
+    
+}
+
+.Login button {
+    margin: 3px;
+    height: 26.7px;
+    position: fixed;
+    top: 70px;
+    padding-right: 3px;
+    padding-left: 1px;
+    padding-bottom: 1.8px;
+}
