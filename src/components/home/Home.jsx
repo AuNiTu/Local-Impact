@@ -42,7 +42,7 @@ const Home = () => {
     <>
       <main className={styles.Home}>
         <Video />
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="where you at? 🌐"
@@ -54,7 +54,7 @@ const Home = () => {
       </main>
 
       <main className={styles.GetButton}>
-        <button onClick={handleSubmitGeoLocation}>📍 Get My Location</button>
+        <button onClick={handleSubmitGeoLocation}>📍 Get My Location</button> */}
       </main>
 
       <main className={styles.MissionStatement}>
