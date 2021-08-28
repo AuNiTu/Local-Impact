@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import OneLogin from '../home/OneLogin';
 import { useSession, useLogout } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
@@ -8,8 +8,6 @@ const Header = () => {
   const session = useSession();
   const logout = useLogout();
   
-
-
   const handleSubmit = (e) => {
     e.preventDefault();
     logout();

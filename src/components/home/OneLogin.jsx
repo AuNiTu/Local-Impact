@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSignup, useLogin } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
+import { useHistory } from 'react-router-dom';
 import styles from './Login.css';
 
 export default function OneLogin() {
@@ -11,6 +12,9 @@ export default function OneLogin() {
   const { address, setAddress } = useAddress();
   const signup = useSignup();
   const login = useLogin();
+  const history = useHistory();
+
+  let useGeo = false;
 
   const handleChange = ({ target }) => {
     if (target.name === 'username') setUsername(target.value);
@@ -21,19 +25,14 @@ export default function OneLogin() {
     setAddress(target.value);
   };
 
-
   const handleSubmitSignUp = async (event) => {
     event.preventDefault();
-    signup(username, password);
+    signup(username, password, location.longitude, location.latitude);
   };
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     login(username, password);
-  };
-
-  const handleLocationSubmit = (e) => {
-    e.preventDefault();
   };
 
   const handleSubmitGeoLocation = (e) => {
@@ -50,7 +49,8 @@ export default function OneLogin() {
       // const timestamp = position.timestamp;
 
       setLocation({ longitude, latitude });
-      history.push('/map');
+      useGeo = true;
+
       // need a loading spinner
     });
   };
@@ -85,26 +85,18 @@ export default function OneLogin() {
             onChange={handleChange}
             required
           ></input>
-          <input
-            type="text"
-            placeholder="where you at? 🌐"
-            value={address}
-            onChange={handleAddressChange}
-            required
-          ></input>
-          
-          {isSignUp ? <button>🔑 Signup</button> : <button>Login</button>}
-          {/* <form onSubmit={handleLocationSubmit}>
-            <input
-              type="text"
-              placeholder="where you at? 🌐"
-              value={address}
-              onChange={handleAddressChange}
-              required
-            ></input>
-            <button>Go to Map</button> */}
-          {/* </form> */}
-          <button onClick={handleSubmitGeoLocation}>📍 Get My Location</button>
+          {isSignUp ?
+            <section>
+              {useGeo === false ? <input
+                type="text"
+                placeholder="enter address or click get location 🌐"
+                value={address}
+                onChange={handleAddressChange}
+              ></input>
+                : <section></section>}
+              <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
+            </section> : <section></section>}
+          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password}>🔑 Login</button>}
         </form>
       </section>
     </>
