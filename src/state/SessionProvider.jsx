@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useContext, useState } from 'react';
 import { useHistory, Route, Redirect } from 'react-router';
-import { postLogin, postSignup, getLogout } from '../services/auth';
+import { postLogin, postSignup, getLogout, fetchUserLocation } from '../services/auth';
 
 const SessionContext = createContext();
 
@@ -10,15 +10,20 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [dbLocation, setDbLocation] = useState({});
 
   const signup = async (username, password, longitude, latitude) => {
     const user = await postSignup(username, password, longitude, latitude);
+    // const interLocation = await fetchUserLocation(username);  //MUST SET dbLocation state AFTER(!!!!!!!!!) person is put in database 
+    // setDbLocation(interLocation);  //omfg
     setSession(user);
     history.push('/map');
   };
 
   const login = async (username, password) => {
     setSession(await postLogin(username, password));
+    const interLocation = await fetchUserLocation(username);
+    setDbLocation(interLocation);
     history.push('/map');
   };
 
@@ -29,7 +34,7 @@ export const SessionProvider = ({ children }) => {
   };
 
   return (
-    <SessionContext.Provider value={{ session, loading, signup, login, logout }}>
+    <SessionContext.Provider value={{ session, loading, signup, login, logout, dbLocation }}>
       {children}
     </SessionContext.Provider>
   );
@@ -68,4 +73,9 @@ export const useLogin = () => {
 export const useLogout = () => {
   const { logout } = useContext(SessionContext);
   return logout;
+};
+
+export const useDbLocation = () => {
+  const { dbLocation } = useContext(SessionContext);
+  return dbLocation;
 };

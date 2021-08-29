@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useSignup, useLogin } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
-import { useHistory } from 'react-router-dom';
 import styles from './Login.css';
 
 export default function OneLogin() {
@@ -12,7 +11,6 @@ export default function OneLogin() {
   const { address, setAddress } = useAddress();
   const signup = useSignup();
   const login = useLogin();
-  const history = useHistory();
 
   let useGeo = false;
 

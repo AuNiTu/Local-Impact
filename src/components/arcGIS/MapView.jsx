@@ -8,14 +8,18 @@ import AirBlotchMap from './map/AirBlotch';
 import AirSensorMap from './map/AirSensor';
 import DeforestationMap from './map/Deforestation';
 import AltFuelMap from './map/AltFuel';
+import { useDbLocation } from '../../state/SessionProvider';
 
 function MapView() {
+
+  const locationFromDb = useDbLocation();
+
   const [Maps] = useState([
-    <FireMap />,
-    <AirBlotchMap />,
-    <AirSensorMap />,
-    <DeforestationMap />,
-    <AltFuelMap />,
+    <FireMap locationFromDb={locationFromDb} />,
+    <AirBlotchMap locationFromDb={locationFromDb} />,
+    <AirSensorMap locationFromDb={locationFromDb} />,
+    <DeforestationMap locationFromDb={locationFromDb} />,
+    <AltFuelMap locationFromDb={locationFromDb} />,
   ]);
 
   const [value, setValue] = useState(0);
@@ -40,12 +44,12 @@ function MapView() {
       name: 'Deforestation',
       map: '2020fcd1d4bf4c68ab99545304695f9c',
       id: 3,
-    }, // deforestation
+    },
     {
       name: 'Alternative Fuel Stations',
       map: '511dfe0a721c40f598cb2195c2a02527',
       id: 4,
-    }, // altFuelLocation
+    },
   ];
 
   return (
