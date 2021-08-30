@@ -10,7 +10,7 @@ export const UserProvider = ({ children }) => {
   // state here
   const [location, setLocation] = useState({});
   const [loading, setLoading] = useState(true);
-  const [address, setAddress] = useState('Portland');
+  const [address, setAddress] = useState();
   const [map, setMap] = useState('89ff30d783b849c8b22fc812d4c2f205');
   const [value, setValue] = useState(0);
 
@@ -60,4 +60,3 @@ export const useValue = () => {
   const { value, setValue } = useContext(UserContext);
   return { value, setValue };
 };
-
