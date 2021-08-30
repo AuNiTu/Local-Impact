@@ -11,9 +11,10 @@ function Advice() {
     <section className={styles.advice}>
       <h3>{title}</h3>
       <ul>
-        {advice.map((thing) => (
-          <li key={thing}>{thing}</li>
-        ))}
+        {advice.map((thing) => {
+          if (!thing) return <p>No Advice Found</p>;
+          return <li key={thing}>{thing}</li>;
+        })}
       </ul>
     </section>
   );
