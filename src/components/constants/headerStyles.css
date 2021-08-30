@@ -1,16 +1,21 @@
 .Header {
   background-color: white;
-  height: 10vh;
-  padding: 0;
+  height: 7vh;
+  padding-top: 8px;
+  padding-left: 8px;
+  padding-Right: 8px;
   margin: 0;
   opacity: 60%;
   display: flex;
   justify-content: space-between;
 }
 
-.Header h1 {
+.Header section h1 {
   color: #5ca08e;
   font-family: 'Playfair Display SC';
+  font-size: 60px;
+  position: fixed;
+  margin-top: 0px;
 }
 
 .Header h4 {

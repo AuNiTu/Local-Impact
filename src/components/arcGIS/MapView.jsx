@@ -8,6 +8,7 @@ import AirBlotchMap from './map/AirBlotch';
 import AirSensorMap from './map/AirSensor';
 import DeforestationMap from './map/Deforestation';
 import AltFuelMap from './map/AltFuel';
+import { useDbLocation } from '../../state/SessionProvider';
 
 import { webMaps } from './map/webmaps';
 import { useValue } from '../../state/Provider';
@@ -18,15 +19,20 @@ import Advice from '../lower/WhatCanIdo';
 import styles from './MapView.css';
 
 function MapView() {
+
   const { value, setValue } = useValue();
 
+  const locationFromDb = useDbLocation();
+
+
   const [Maps] = useState([
-    <FireMap />,
-    <AirBlotchMap />,
-    <AirSensorMap />,
-    <DeforestationMap />,
-    <AltFuelMap />,
+    <FireMap locationFromDb={locationFromDb} />,
+    <AirBlotchMap locationFromDb={locationFromDb} />,
+    <AirSensorMap locationFromDb={locationFromDb} />,
+    <DeforestationMap locationFromDb={locationFromDb} />,
+    <AltFuelMap locationFromDb={locationFromDb} />,
   ]);
+
 
   return (
     <>
