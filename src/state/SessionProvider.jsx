@@ -14,8 +14,6 @@ export const SessionProvider = ({ children }) => {
 
   const signup = async (username, password, longitude, latitude) => {
     const user = await postSignup(username, password, longitude, latitude);
-    // const interLocation = await fetchUserLocation(username);  //MUST SET dbLocation state AFTER(!!!!!!!!!) person is put in database 
-    // setDbLocation(interLocation);  //omfg
     setSession(user);
     history.push('/map');
   };
@@ -30,6 +28,7 @@ export const SessionProvider = ({ children }) => {
   const logout = async () => {
     await getLogout();
     setSession(null);
+    setDbLocation({});
     history.push('/');
   };
 
