@@ -14,9 +14,9 @@ export const whatToDo = [
   {
     title: 'Air Quality',
     advice: [
-      'don\'t smoke cigarettes',
-      'keep fireworks away from children',
-      'use public transit, electric vehicles, or a bicycle when possible',
+      'Don\'t smoke cigarettes',
+      'Keep fireworks away from children',
+      'Use public transit, electric vehicles, or a bicycle when possible',
     ],
     links: [
       link.indoorAirSchools
@@ -25,9 +25,9 @@ export const whatToDo = [
   {
     title: 'Air Quality',
     advice: [
-      'don\'t smoke cigarettes',
-      'keep fireworks away from children',
-      'use public transit, electric vehicles, or a bicycle when possible',
+      'Don\'t smoke cigarettes',
+      'Keep fireworks away from children',
+      'Use public transit, electric vehicles, or a bicycle when possible',
     ],
     links: [
       link.indoorAirSchools
@@ -36,10 +36,10 @@ export const whatToDo = [
   {
     title: 'Deforestation',
     advice: [
-      'leave fireworks to professionals',
-      'follow Smokey the Bear\'s advice when having a campfire',
-      'consult legislature',
-      'contact your government representative and make your voice heard'
+      'Leave fireworks to professionals',
+      'Follow Smokey the Bear\'s advice when having a campfire',
+      'Consult legislature',
+      'Contact your government representative and make your voice heard'
     ],
     links: [
       null

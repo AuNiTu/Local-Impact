@@ -9,7 +9,9 @@ const links = {
     'https://impactful.ninja/best-charities-for-wildfire-relief/#3',
   climateCommunity: 'https://www.meetup.com/topics/climate-change/',
   indoorAirSchools:
-    'https://www.epa.gov/iaq-schools/take-action-improve-indoor-air-quality-schools'
+    'https://www.epa.gov/iaq-schools/take-action-improve-indoor-air-quality-schools',
+  wildfireCauses: 'https://www.nps.gov/articles/wildfire-causes-and-evaluation.htm',
+  fireworks: 'https://www.nfpa.org/Public-Education/Fire-causes-and-risks/Seasonal-fire-causes/Fireworks',
 };
 
 export default links;
