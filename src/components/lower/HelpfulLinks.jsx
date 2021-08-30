@@ -1,21 +1,40 @@
 import React from 'react';
-import links from './links';
+import { useValue } from '../../state/Provider';
+import { whatToDo } from './advice';
+import link from './links';
 import styles from '../arcGIS/MapView.css';
 
 function Links() {
+  const { value } = useValue();
+  const { title, links } = whatToDo[value];
   const {
     polarBear,
     simpleThingsDavis,
     simpleThingsBBC,
     UNCarbon,
-    wildfireCharity,
     climateCommunity,
-    indoorAirSchools,
-  } = links;
+  } = link;
 
   return (
     <>
       <section className={styles.links}>
+        <h4>Related Articles</h4>
+        {links.map((article) => {
+          if (!article) return <p>No Related Articles Found</p>;
+
+          return (
+            <a
+              href={article.url}
+              key={article.title}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {article.title}
+            </a>
+          );
+        })}
+
+        <h4>General Articles</h4>
         <a href={polarBear} target="_blank" rel="noreferrer">
           Determining False Information
         </a>
@@ -28,14 +47,8 @@ function Links() {
         <a href={UNCarbon} target="_blank" rel="noreferrer">
           UN Carbon Offset Platform
         </a>
-        <a href={wildfireCharity} target="_blank" rel="noreferrer">
-          Contribute to Wildfire Relief
-        </a>
         <a href={climateCommunity} target="_blank" rel="noreferrer">
           See What Your Community is Doing to Fight Climate Change
-        </a>
-        <a href={indoorAirSchools} target="_blank" rel="noreferrer">
-          Improve Air Quality in Your Schools
         </a>
       </section>
     </>

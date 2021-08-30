@@ -8,7 +8,10 @@ export const whatToDo = [
       'Listen to Smokey the Bear',
     ],
     links: [
-      link.wildfireCharity
+      {
+        title: 'Contribute to Wildfire Relief',
+        url: link.wildfireCharity
+      }
     ]
   },
   {
@@ -19,7 +22,10 @@ export const whatToDo = [
       'Use public transit, electric vehicles, or a bicycle when possible',
     ],
     links: [
-      link.indoorAirSchools
+      {
+        title: 'Improve Air Quality in Your Schools',
+        url: link.indoorAirSchools
+      }
     ]
   },
   {
@@ -30,7 +36,10 @@ export const whatToDo = [
       'Use public transit, electric vehicles, or a bicycle when possible',
     ],
     links: [
-      link.indoorAirSchools
+      {
+        title: 'Improve Air Quality in Your Schools',
+        url: link.indoorAirSchools
+      }
     ]
   },
   {
