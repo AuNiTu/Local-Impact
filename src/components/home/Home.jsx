@@ -1,60 +1,13 @@
 import React from 'react';
-import Video from '../video/Video';
-import { useHistory } from 'react-router-dom';
-import { useAddress, useGeoLocation } from '../../state/Provider';
+// import Video from '../video/Video';
 import styles from '../../styles/styles.css';
 
 const Home = () => {
-  const { location, setLocation } = useGeoLocation();
-  const { address, setAddress } = useAddress();
-  const history = useHistory();
-
-
-  const handleChange = ({ target }) => {
-    setAddress(target.value);
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    history.push('/map');
-  };
-
-  const handleSubmitGeoLocation = (e) => {
-    e.preventDefault();
-
-    navigator.geolocation.getCurrentPosition((position) => {
-      const latitude = position.coords.latitude;
-      const longitude = position.coords.longitude;
-      // const altitude = position.coords.altitude;
-      // const accuracy = position.coords.accuracy;
-      // const altitudeAccuracy = position.coords.altitudeAccuracy;
-      // const heading = position.coords.height;
-      // const speed = position.coords.speed;
-      // const timestamp = position.timestamp;
-
-      setLocation({ longitude, latitude });
-      history.push('/map');
-      // need a loading spinner
-    });
-  };
 
   return (
     <>
       <main className={styles.Home}>
-        <Video />
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="where you at? 🌐"
-            value={address}
-            onChange={handleChange}
-          ></input>
-          <button>Go to Map</button>
-        </form>
-      </main>
-
-      <main className={styles.GetButton}>
-        <button onClick={handleSubmitGeoLocation}>📍 Get My Location</button>
+        {/* <Video /> */}
       </main>
 
       <main className={styles.MissionStatement}>
