@@ -10,14 +10,9 @@ export const UserProvider = ({ children }) => {
   // state here
   const [location, setLocation] = useState({});
   const [loading, setLoading] = useState(true);
-  const [address, setAddress] = useState('');
-  const [options] = useState({
-    view: {
-      center: [location.longitude, location.latitude],
-      zoom: 8,
-    },
-  });
+  const [address, setAddress] = useState('Portland');
   const [map, setMap] = useState('89ff30d783b849c8b22fc812d4c2f205');
+  const [value, setValue] = useState(0);
 
   // useEffect to trigger fetch here
 
@@ -36,7 +31,8 @@ export const UserProvider = ({ children }) => {
         setAddress,
         map,
         setMap,
-        options,
+        value,
+        setValue,
       }}
     >
       {children}
@@ -60,8 +56,8 @@ export const useMap = () => {
   return { map, setMap };
 };
 
-export const useOptions = () => {
-  const { options } = useContext(UserContext);
-  return options;
+export const useValue = () => {
+  const { value, setValue } = useContext(UserContext);
+  return { value, setValue };
 };
 
