@@ -60,7 +60,7 @@ export const SessionProvider = ({ children }) => {
         login,
         logout,
         buttonClick,
-        dbLocation
+        dbLocation,
       }}
     >
       {children}

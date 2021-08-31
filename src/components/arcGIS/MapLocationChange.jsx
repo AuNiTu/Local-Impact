@@ -1,9 +1,11 @@
-import React from 'react';
-import { useGeoLocation, useAddress } from '../../state/Provider';
+import React, { useState } from 'react';
+import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
 
 function LocationChange() {
-  const { location, setLocation } = useGeoLocation();
-  const { address, setAddress } = useAddress();
+  const { setLocation } = useGeoLocation();
+  const { setAddress } = useAddress();
+  const { setLocationSwitch } = useSwitch();
+  const [searchLoc, setSearchLoc] = useState();
 
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
@@ -13,12 +15,18 @@ function LocationChange() {
       const longitude = position.coords.longitude;
 
       setLocation({ longitude, latitude });
+      setLocationSwitch(true);
     });
+  };
+
+  const handleChange = ({ target }) => {
+    setSearchLoc(target.value);
   };
 
   const handleAddressChange = (e) => {
     e.preventDefault();
-    setAddress(e.target.value);
+    setAddress(searchLoc);
+    setLocationSwitch(true);
   };
 
   const handlePut = () => {
@@ -28,7 +36,12 @@ function LocationChange() {
   return (
     <>
       <form onSubmit={handleAddressChange}>
-        <input />
+        <input
+          type="text"
+          placeholder="enter address or click get location 🌐"
+          value={searchLoc}
+          onChange={handleChange}
+        />
         <button>Find</button>
       </form>
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
