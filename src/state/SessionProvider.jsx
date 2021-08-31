@@ -1,7 +1,12 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useContext, useState } from 'react';
 import { useHistory, Route, Redirect } from 'react-router';
-import { postLogin, postSignup, getLogout, fetchUserLocation } from '../services/auth';
+import {
+  postLogin,
+  postSignup,
+  getLogout,
+  fetchUserLocation,
+} from '../services/auth';
 
 const SessionContext = createContext();
 
@@ -33,7 +38,9 @@ export const SessionProvider = ({ children }) => {
   };
 
   return (
-    <SessionContext.Provider value={{ session, loading, signup, login, logout, dbLocation }}>
+    <SessionContext.Provider
+      value={{ session, loading, signup, login, logout, dbLocation }}
+    >
       {children}
     </SessionContext.Provider>
   );
