@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
+import { useUpdate, useSession } from '../../state/SessionProvider';
 
 function LocationChange() {
-  const { setLocation } = useGeoLocation();
+  const { location, setLocation } = useGeoLocation();
   const { setAddress } = useAddress();
   const { setLocationSwitch } = useSwitch();
+  const update = useUpdate();
+  const session = useSession();
   const [searchLoc, setSearchLoc] = useState();
 
   const handleSubmitGeoLocation = (e) => {
@@ -30,7 +33,8 @@ function LocationChange() {
   };
 
   const handlePut = () => {
-    // put location in db for user
+    console.log(session);
+    update(session.username, location.longitude, location.latitude);
   };
 
   return (
