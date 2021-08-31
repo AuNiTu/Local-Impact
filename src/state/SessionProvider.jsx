@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useHistory, Route, Redirect } from 'react-router';
+import { useLocation } from 'react-router-dom';
 import { postLogin, postSignup, getLogout, fetchUserLocation } from '../services/auth';
 
 const SessionContext = createContext();
@@ -9,19 +10,46 @@ export const SessionProvider = ({ children }) => {
   const history = useHistory();
 
   const [session, setSession] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [dbLocation, setDbLocation] = useState({});
+  const [buttonClick, setButtonClick] = useState(false);
+
+  useEffect (() => {
+    console.log("button click", buttonClick);
+    if (buttonClick === true) setLoading(!loading);
+  }, [buttonClick]);
+
+  // insert placeholder inside square bracket
 
   const signup = async (username, password, longitude, latitude) => {
+    setButtonClick(!buttonClick);
+    if (loading) return <h2> Loading... </h2>;
     const user = await postSignup(username, password, longitude, latitude);
     setSession(user);
+    await setLoading(false);
     history.push('/map');
+    const [loading, setLoading] = useState(true);
+
+
+
+  //   useEffect (async () => {
+  //     await postSignup(username, password, longitude, latitude)
+  //       .then((user) => setSession(user))
+  //       .catch((err) => console.error(err))
+  //       .finally(() => setLoading(false));
+  //   }, [longitude]);
+  //   history.push('/map');
+  //   return { loading }; 
   };
 
+
+
   const login = async (username, password) => {
+    setButtonClick(true);
     setSession(await postLogin(username, password));
     const interLocation = await fetchUserLocation(username);
     setDbLocation(interLocation);
+    debugger;
     history.push('/map');
   };
 
@@ -33,7 +61,7 @@ export const SessionProvider = ({ children }) => {
   };
 
   return (
-    <SessionContext.Provider value={{ session, loading, signup, login, logout, dbLocation }}>
+    <SessionContext.Provider value={{ session, loading, setLoading, signup, login, logout, dbLocation, buttonClick }}>
       {children}
     </SessionContext.Provider>
   );
@@ -78,3 +106,18 @@ export const useDbLocation = () => {
   const { dbLocation } = useContext(SessionContext);
   return dbLocation;
 };
+
+export const useLoading = () => {
+  const { loading, setLoading } = useContext(SessionContext);
+  return { loading, setLoading };
+};
+
+export const useButton = () => {
+  const { buttonClick } = useContext(SessionContext);
+  return buttonClick;
+};
+
+// export const setLoading = () => {
+//   const { loading, } = useContext(SessionContext);
+//   return loading;
+// };

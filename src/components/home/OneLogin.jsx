@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignup, useLogin } from '../../state/SessionProvider';
+import { useSignup, useLogin, useLoading, useAuthLoading } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
@@ -9,26 +9,35 @@ export default function OneLogin() {
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
+  // const { loading } = useAuthLoading();
+
   const signup = useSignup();
   const login = useLogin();
+  const { loading, setLoading } = useLoading();
 
+  // console.log(loading);
+
+  if (loading) return <h2>Loading</h2>;
   let useGeo = false;
 
   const handleChange = ({ target }) => {
     if (target.name === 'username') setUsername(target.value);
     if (target.name === 'password') setPassword(target.value);
+
   };
 
   const handleAddressChange = ({ target }) => {
     setAddress(target.value);
   };
 
-  const handleSubmitSignUp = async (event) => {
+  const handleSubmitSignUp = (event) => {
     event.preventDefault();
+    setLoading(true);
+    console.log("loading", loading);
     signup(username, password, location.longitude, location.latitude);
   };
 
-  const handleSubmitLogin = async (e) => {
+  const handleSubmitLogin = (e) => {
     e.preventDefault();
     login(username, password);
   };
@@ -55,6 +64,7 @@ export default function OneLogin() {
 
   const handleSwitch = () => {
     setSignUp(!isSignUp);
+    console.log("sign up", isSignUp);
   };
 
   return (
@@ -66,7 +76,7 @@ export default function OneLogin() {
       </button>
 
       <section className={styles.Login}>
-        <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
+        <form onSubmit={handleSubmitSignUp}>
           <input
             type="text"
             name="username"
