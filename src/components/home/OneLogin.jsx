@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignup, useLogin, useLoading, useAuthLoading } from '../../state/SessionProvider';
+import { useSignup, useLogin, useLoading } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
@@ -9,7 +9,7 @@ export default function OneLogin() {
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
-  // const { loading } = useAuthLoading();
+
 
   const signup = useSignup();
   const login = useLogin();
