@@ -8,6 +8,8 @@ const Header = () => {
   const logout = useLogout();
   const { setLoading } = useLoading();
 
+  console.log(session);
+
   // if (loading) return <h2>Loading</h2>;
 
   const handleSubmit = (e) => {

@@ -1,9 +1,14 @@
-import React from 'react';
-import { useGeoLocation, useAddress } from '../../state/Provider';
+import React, { useState } from 'react';
+import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
+import { useUpdate, useSession } from '../../state/SessionProvider';
 
 function LocationChange() {
   const { location, setLocation } = useGeoLocation();
-  const { address, setAddress } = useAddress();
+  const { setAddress } = useAddress();
+  const { setLocationSwitch } = useSwitch();
+  const update = useUpdate();
+  const session = useSession();
+  const [searchLoc, setSearchLoc] = useState();
 
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
@@ -13,22 +18,34 @@ function LocationChange() {
       const longitude = position.coords.longitude;
 
       setLocation({ longitude, latitude });
+      setLocationSwitch(true);
     });
+  };
+
+  const handleChange = ({ target }) => {
+    setSearchLoc(target.value);
   };
 
   const handleAddressChange = (e) => {
     e.preventDefault();
-    setAddress(e.target.value);
+    setAddress(searchLoc);
+    setLocationSwitch(true);
   };
 
   const handlePut = () => {
-    // put location in db for user
+    console.log(session);
+    update(session.username, location.longitude, location.latitude);
   };
 
   return (
     <>
       <form onSubmit={handleAddressChange}>
-        <input />
+        <input
+          type="text"
+          placeholder="enter address or click get location 🌐"
+          value={searchLoc}
+          onChange={handleChange}
+        />
         <button>Find</button>
       </form>
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>

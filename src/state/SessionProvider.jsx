@@ -5,6 +5,7 @@ import {
   postLogin,
   postSignup,
   getLogout,
+  putLocation,
   fetchUserLocation,
 } from '../services/auth';
 
@@ -30,6 +31,10 @@ export const SessionProvider = ({ children }) => {
     const user = await postSignup(username, password, longitude, latitude);
     setSession(user);
     history.push('/map');
+  };
+
+  const update = async (username, longitude, latitude) => {
+    await putLocation(username, longitude, latitude);
   };
 
   const login = async (username, password) => {
@@ -58,9 +63,10 @@ export const SessionProvider = ({ children }) => {
         setLoading,
         signup,
         login,
+        update,
         logout,
         buttonClick,
-        dbLocation
+        dbLocation,
       }}
     >
       {children}
@@ -96,6 +102,11 @@ export const useSignup = () => {
 export const useLogin = () => {
   const { login } = useContext(SessionContext);
   return login;
+};
+
+export const useUpdate = () => {
+  const { update } = useContext(SessionContext);
+  return update;
 };
 
 export const useLogout = () => {
