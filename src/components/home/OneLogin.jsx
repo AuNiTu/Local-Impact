@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignup, useLogin, useLoading, useAuthLoading } from '../../state/SessionProvider';
+import { useSignup, useLogin, useLoading } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
@@ -9,21 +9,16 @@ export default function OneLogin() {
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
-  // const { loading } = useAuthLoading();
 
   const signup = useSignup();
   const login = useLogin();
   const { loading, setLoading } = useLoading();
 
-  // console.log(loading);
-
   if (loading) return <h2>Loading</h2>;
-  let useGeo = false;
 
   const handleChange = ({ target }) => {
     if (target.name === 'username') setUsername(target.value);
     if (target.name === 'password') setPassword(target.value);
-
   };
 
   const handleAddressChange = ({ target }) => {
@@ -33,7 +28,7 @@ export default function OneLogin() {
   const handleSubmitSignUp = (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log("loading", loading);
+    console.log('loading', loading);
     signup(username, password, location.longitude, location.latitude);
   };
 
@@ -50,15 +45,13 @@ export default function OneLogin() {
       const longitude = position.coords.longitude;
 
       setLocation({ longitude, latitude });
-      useGeo = true;
-
       // need a loading spinner
     });
   };
 
   const handleSwitch = () => {
     setSignUp(!isSignUp);
-    console.log("sign up", isSignUp);
+    console.log('sign up', isSignUp);
   };
 
   return (
@@ -70,7 +63,7 @@ export default function OneLogin() {
       </button>
 
       <section className={styles.Login}>
-        <form onSubmit={handleSubmitSignUp}>
+        <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
           <input
             type="text"
             name="username"
@@ -89,16 +82,12 @@ export default function OneLogin() {
           ></input>
           {isSignUp ? (
             <section>
-              {useGeo === false ? (
-                <input
-                  type="text"
-                  placeholder="enter address or click get location 🌐"
-                  value={address}
-                  onChange={handleAddressChange}
-                ></input>
-              ) : (
-                <section></section>
-              )}
+              <input
+                type="text"
+                placeholder="enter address or click get location 🌐"
+                value={address}
+                onChange={handleAddressChange}
+              />
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
             </section>
           ) : (

@@ -29,7 +29,6 @@ export const SessionProvider = ({ children }) => {
     if (loading) return <h2> Loading... </h2>;
     const user = await postSignup(username, password, longitude, latitude);
     setSession(user);
-    setLoading(false);
     history.push('/map');
     const [loading, setLoading] = useState(true);
   };
