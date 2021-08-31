@@ -28,12 +28,12 @@ export default function OneLogin() {
   const handleSubmitSignUp = (event) => {
     event.preventDefault();
     setLoading(true);
-    console.log('loading', loading);
     signup(username, password, location.longitude, location.latitude);
   };
 
   const handleSubmitLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     login(username, password);
   };
 
@@ -51,7 +51,6 @@ export default function OneLogin() {
 
   const handleSwitch = () => {
     setSignUp(!isSignUp);
-    console.log('sign up', isSignUp);
   };
 
   return (

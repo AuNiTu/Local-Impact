@@ -21,7 +21,7 @@ import styles from './MapView.css';
 function MapView() {
   const { value, setValue } = useValue();
 
-  const { locationFromDb } = useDbLocation();
+  const locationFromDb = useDbLocation();
 
   const [Maps] = useState([
     <FireMap locationFromDb={locationFromDb} />,

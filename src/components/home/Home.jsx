@@ -1,12 +1,12 @@
 import React from 'react';
-import Video from '../video/Video';
+// import Video from '../video/Video';
 import styles from '../../styles/styles.css';
 
 const Home = () => {
   return (
     <>
       <main className={styles.Home}>
-        <Video />
+        {/* <Video /> */}
       </main>
 
       <main className={styles.MissionStatement}>

@@ -9,9 +9,9 @@ function AirSensorMap(locationFromDb) {
   let latitude;
 
   {
-    locationFromDb.latitude
-      ? ((longitude = locationFromDb.longitude),
-        (latitude = locationFromDb.latitude))
+    locationFromDb.locationFromDb.latitude
+      ? ((longitude = locationFromDb.locationFromDb.longitude),
+      (latitude = locationFromDb.locationFromDb.latitude))
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
 

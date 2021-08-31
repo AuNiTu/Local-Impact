@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../components/arcGIS/services/fetchLocation';
-import { useDbLocation } from './SessionProvider';
 
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   // state here
-  const { dbLocation } = useDbLocation();
 
   const [address, setAddress] = useState();
   const [location, setLocation] = useState({});
@@ -21,14 +19,6 @@ export const UserProvider = ({ children }) => {
       .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
       .finally(() => setLoading(false));
   }, [address]);
-
-  // useEffect(() => {
-  //   console.log(dbLocation);
-  //   setLocation({
-  //     longitude: dbLocation.longitude,
-  //     latitude: dbLocation.latitude,
-  //   });
-  // }, [dbLocation]);
 
   return (
     <UserContext.Provider

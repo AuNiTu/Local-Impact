@@ -1,7 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { useHistory, Route, Redirect } from 'react-router';
-import { useLocation } from 'react-router-dom';
+import { useHistory } from 'react-router';
 import {
   postLogin,
   postSignup,
@@ -16,25 +15,26 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [dbLocation, setDbLocation] = useState({});
   const [buttonClick, setButtonClick] = useState(false);
 
+  const [dbLocation, setDbLocation] = useState({});
+
   useEffect(() => {
-    console.log('button click', buttonClick);
     if (buttonClick === true) setLoading(!loading);
+    setButtonClick(false);
   }, [buttonClick]);
 
   const signup = async (username, password, longitude, latitude) => {
-    setButtonClick(!buttonClick);
+    setButtonClick(true);
     if (loading) return <h2> Loading... </h2>;
     const user = await postSignup(username, password, longitude, latitude);
     setSession(user);
     history.push('/map');
-    const [loading, setLoading] = useState(true);
   };
 
   const login = async (username, password) => {
     setButtonClick(true);
+    if (loading) return <h2> Loading... </h2>;
     setSession(await postLogin(username, password));
     const interLocation = await fetchUserLocation(username);
     setDbLocation(interLocation);
@@ -42,6 +42,8 @@ export const SessionProvider = ({ children }) => {
   };
 
   const logout = async () => {
+    setButtonClick(true);
+    if (loading) return <h2> Loading... </h2>;
     await getLogout();
     setSession(null);
     setDbLocation({});
@@ -57,8 +59,8 @@ export const SessionProvider = ({ children }) => {
         signup,
         login,
         logout,
-        dbLocation,
         buttonClick,
+        dbLocation
       }}
     >
       {children}
@@ -66,15 +68,15 @@ export const SessionProvider = ({ children }) => {
   );
 };
 
-export const PrivateRoute = (props) => {
-  const session = useSession();
-  const loading = useAuthLoading();
+// export const PrivateRoute = (props) => {
+//   const session = useSession();
+//   const loading = useAuthLoading();
 
-  if (loading) return <h1> Loading ...</h1>;
-  if (!session && !loading) return <Redirect to="/" />;
+//   if (loading) return <h1> Loading ...</h1>;
+//   if (!session && !loading) return <Redirect to="/" />;
 
-  return <Route {...props} />;
-};
+//   return <Route {...props} />;
+// };
 
 export const useSession = () => {
   const { session } = useContext(SessionContext);
@@ -101,17 +103,12 @@ export const useLogout = () => {
   return logout;
 };
 
-export const useDbLocation = () => {
-  const { dbLocation } = useContext(SessionContext);
-  return dbLocation;
-};
-
 export const useLoading = () => {
   const { loading, setLoading } = useContext(SessionContext);
   return { loading, setLoading };
 };
 
-export const useButton = () => {
-  const { buttonClick } = useContext(SessionContext);
-  return buttonClick;
+export const useDbLocation = () => {
+  const { dbLocation } = useContext(SessionContext);
+  return dbLocation;
 };

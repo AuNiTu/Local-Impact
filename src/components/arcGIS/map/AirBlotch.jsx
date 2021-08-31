@@ -4,14 +4,14 @@ import { useGeoLocation } from '../../../state/Provider';
 
 function AirBlotchMap(locationFromDb) {
   const { location } = useGeoLocation();
-
+  
   let longitude;
   let latitude;
 
   {
-    locationFromDb.latitude
-      ? ((longitude = locationFromDb.longitude),
-        (latitude = locationFromDb.latitude))
+    locationFromDb.locationFromDb.latitude
+      ? ((longitude = locationFromDb.locationFromDb.longitude),
+      (latitude = locationFromDb.locationFromDb.latitude))
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
 
