@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useSignup, useLogin } from '../../state/SessionProvider';
+import { useSignup, useLogin, useLoading } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
@@ -9,10 +9,12 @@ export default function OneLogin() {
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
+
   const signup = useSignup();
   const login = useLogin();
+  const { loading, setLoading } = useLoading();
 
-  let useGeo = false;
+  if (loading) return <h2>Loading</h2>;
 
   const handleChange = ({ target }) => {
     if (target.name === 'username') setUsername(target.value);
@@ -23,13 +25,15 @@ export default function OneLogin() {
     setAddress(target.value);
   };
 
-  const handleSubmitSignUp = async (event) => {
+  const handleSubmitSignUp = (event) => {
     event.preventDefault();
+    setLoading(true);
     signup(username, password, location.longitude, location.latitude);
   };
 
-  const handleSubmitLogin = async (e) => {
+  const handleSubmitLogin = (e) => {
     e.preventDefault();
+    setLoading(true);
     login(username, password);
   };
 
@@ -39,16 +43,8 @@ export default function OneLogin() {
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      // const altitude = position.coords.altitude;
-      // const accuracy = position.coords.accuracy;
-      // const altitudeAccuracy = position.coords.altitudeAccuracy;
-      // const heading = position.coords.height;
-      // const speed = position.coords.speed;
-      // const timestamp = position.timestamp;
 
       setLocation({ longitude, latitude });
-      useGeo = true;
-
       // need a loading spinner
     });
   };
@@ -83,21 +79,28 @@ export default function OneLogin() {
             onChange={handleChange}
             required
           ></input>
-          {isSignUp ?
+          {isSignUp ? (
             <section>
-              {useGeo === false ? <input
+              <input
                 type="text"
                 placeholder="enter address or click get location 🌐"
                 value={address}
                 onChange={handleAddressChange}
-              ></input>
-                : <section></section>}
+              />
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
-            </section> : <section></section>}
-          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password}>🔑 Login</button>}
+            </section>
+          ) : (
+            <section></section>
+          )}
+          {isSignUp ? (
+            <button disabled={!location.longitude || !username || !password}>
+              🔑 Signup
+            </button>
+          ) : (
+            <button disabled={!username || !password}>🔑 Login</button>
+          )}
         </form>
       </section>
     </>
   );
 }
-

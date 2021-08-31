@@ -2,17 +2,15 @@
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../components/arcGIS/services/fetchLocation';
 
-// import fetches here
-
 const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
   // state here
-  const [location, setLocation] = useState({});
-  const [loading, setLoading] = useState(true);
+
   const [address, setAddress] = useState();
-  const [map, setMap] = useState('89ff30d783b849c8b22fc812d4c2f205');
+  const [location, setLocation] = useState({});
   const [value, setValue] = useState(0);
+  const [loading, setLoading] = useState(true);
 
   // useEffect to trigger fetch here
 
@@ -29,8 +27,6 @@ export const UserProvider = ({ children }) => {
         setLocation,
         address,
         setAddress,
-        map,
-        setMap,
         value,
         setValue,
       }}
@@ -49,11 +45,6 @@ export const useGeoLocation = () => {
 export const useAddress = () => {
   const { address, setAddress } = useContext(UserContext);
   return { address, setAddress };
-};
-
-export const useMap = () => {
-  const { map, setMap } = useContext(UserContext);
-  return { map, setMap };
 };
 
 export const useValue = () => {

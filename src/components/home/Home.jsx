@@ -3,7 +3,6 @@ import React from 'react';
 import styles from '../../styles/styles.css';
 
 const Home = () => {
-
   return (
     <>
       <main className={styles.Home}>
@@ -13,10 +12,10 @@ const Home = () => {
       <main className={styles.MissionStatement}>
         <div>
           <p>
-            Local Change is a web app to see what&apos;s going on in your part of
-            the world. We utilize arcgis (put link for arc gis) to show you
-            different factors that could be affecting your environment and how you
-            are different from the rest of the world. blah blah blah.
+            Local Change is a web app to see what&apos;s going on in your part
+            of the world. We utilize arcgis to show you different factors that
+            could be affecting your environment and how you are different from
+            the rest of the world.
           </p>
         </div>
       </main>
