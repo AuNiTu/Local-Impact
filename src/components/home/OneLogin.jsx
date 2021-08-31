@@ -39,12 +39,6 @@ export default function OneLogin() {
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      // const altitude = position.coords.altitude;
-      // const accuracy = position.coords.accuracy;
-      // const altitudeAccuracy = position.coords.altitudeAccuracy;
-      // const heading = position.coords.height;
-      // const speed = position.coords.speed;
-      // const timestamp = position.timestamp;
 
       setLocation({ longitude, latitude });
       useGeo = true;
@@ -83,21 +77,32 @@ export default function OneLogin() {
             onChange={handleChange}
             required
           ></input>
-          {isSignUp ?
+          {isSignUp ? (
             <section>
-              {useGeo === false ? <input
-                type="text"
-                placeholder="enter address or click get location 🌐"
-                value={address}
-                onChange={handleAddressChange}
-              ></input>
-                : <section></section>}
+              {useGeo === false ? (
+                <input
+                  type="text"
+                  placeholder="enter address or click get location 🌐"
+                  value={address}
+                  onChange={handleAddressChange}
+                ></input>
+              ) : (
+                <section></section>
+              )}
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
-            </section> : <section></section>}
-          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password}>🔑 Login</button>}
+            </section>
+          ) : (
+            <section></section>
+          )}
+          {isSignUp ? (
+            <button disabled={!location.longitude || !username || !password}>
+              🔑 Signup
+            </button>
+          ) : (
+            <button disabled={!username || !password}>🔑 Login</button>
+          )}
         </form>
       </section>
     </>
   );
 }
-
