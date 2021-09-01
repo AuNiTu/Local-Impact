@@ -21,10 +21,6 @@ import styles from './MapView.css';
 function MapView() {
   const { value, setValue } = useValue();
 
-  const { dbLocation } = useDbLocation();
-
-  console.log(dbLocation);
-
   const [Maps] = useState([
     <FireMap />,
     <AirBlotchMap />,

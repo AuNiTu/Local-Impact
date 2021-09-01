@@ -1,11 +1,16 @@
 import React, { useState } from 'react';
 import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
-import { useUpdate, useSession } from '../../state/SessionProvider';
+import {
+  useUpdate,
+  useSession,
+  useDbLocation,
+} from '../../state/SessionProvider';
 
 function LocationChange() {
   const { location, setLocation } = useGeoLocation();
+  const { dbLocation, setDbLocation } = useDbLocation();
   const { setAddress } = useAddress();
-  const { setLocationSwitch } = useSwitch();
+  // const { setLocationSwitch } = useSwitch();
   const update = useUpdate();
   const session = useSession();
   const [searchLoc, setSearchLoc] = useState();
@@ -17,8 +22,8 @@ function LocationChange() {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      setLocation({ longitude, latitude });
-      setLocationSwitch(true);
+      setDbLocation({ longitude, latitude });
+      // setLocationSwitch(true);
     });
   };
 
@@ -29,7 +34,8 @@ function LocationChange() {
   const handleAddressChange = (e) => {
     e.preventDefault();
     setAddress(searchLoc);
-    setLocationSwitch(true);
+    setSearchLoc('');
+    setDbLocation(location);
   };
 
   const handlePut = () => {
