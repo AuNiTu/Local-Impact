@@ -6,6 +6,7 @@ import AirBlotchMap from './AirBlotch';
 import AirSensorMap from './AirSensor';
 import DeforestationMap from './Deforestation';
 import AltFuelMap from './AltFuel';
+import FetchingMap from './NewLoc';
 import { webMaps } from './webmaps';
 
 import { useValue, useGeoLocation, useAddress } from '../../../state/Provider';
@@ -17,13 +18,14 @@ import {
 
 function MapView() {
   const { value, setValue } = useValue();
-  const { location, setLocation } = useGeoLocation();
+  const { location } = useGeoLocation();
   const { setAddress } = useAddress();
 
   const { update } = useUpdate();
   const { session } = useSession();
-  const { setDbLocation } = useDbLocation();
+  const { dbLocation, setDbLocation } = useDbLocation();
 
+  const [changeLocation, setChangeLocation] = useState(false);
   const [searchLoc, setSearchLoc] = useState();
   const [Maps] = useState([
     <FireMap />,
@@ -33,14 +35,17 @@ function MapView() {
     <AltFuelMap />,
   ]);
 
+  const mapLoader = <FetchingMap />;
+
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
+    setChangeLocation(true);
 
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      setLocation({ longitude, latitude });
+      setDbLocation({ longitude, latitude });
     });
   };
 
@@ -51,6 +56,7 @@ function MapView() {
   const handleAddressChange = (e) => {
     e.preventDefault();
     setAddress(searchLoc);
+    setChangeLocation(true);
     setSearchLoc('');
   };
 
@@ -59,10 +65,12 @@ function MapView() {
   };
 
   useEffect(() => {
-    console.log('use effect triggered');
     setDbLocation(location);
-    setValue(value);
   }, [location]);
+
+  useEffect(() => {
+    setChangeLocation(false);
+  }, [dbLocation]);
 
   return (
     <>
@@ -77,7 +85,9 @@ function MapView() {
       </form>
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
       <button onClick={handlePut}>Commit Location to My Account</button>
-      {Maps[value]}
+
+      {changeLocation ? mapLoader : Maps[value]}
+
       <select onChange={(e) => setValue(e.currentTarget.value)}>
         {webMaps.map(({ id, name }) => (
           <option key={id} value={id}>
