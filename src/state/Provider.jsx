@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
-import { fetchAddress } from '../components/arcGIS/services/fetchLocation';
+import { fetchAddress } from '../services/fetchLocation';
 
 const UserContext = createContext();
 
@@ -55,7 +55,7 @@ export const useValue = () => {
   return { value, setValue };
 };
 
-export const useSwitch = () => {
-  const { locationSwitch, setLocationSwitch } = useContext(UserContext);
-  return { locationSwitch, setLocationSwitch };
-};
+// export const useSwitch = () => {
+//   const { locationSwitch, setLocationSwitch } = useContext(UserContext);
+//   return { locationSwitch, setLocationSwitch };
+// };

@@ -18,10 +18,10 @@ export const webMaps = [
     name: 'Deforestation',
     map: '2020fcd1d4bf4c68ab99545304695f9c',
     id: 3,
-  }, // deforestation
+  },
   {
     name: 'Alternative Fuel Stations',
     map: '511dfe0a721c40f598cb2195c2a02527',
     id: 4,
-  }, // altFuelLocation
+  },
 ];

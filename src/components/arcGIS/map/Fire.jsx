@@ -1,18 +1,17 @@
 import React from 'react';
 import { useWebMap } from 'esri-loader-hooks';
-import { useGeoLocation, useSwitch } from '../../../state/Provider';
+import { useGeoLocation } from '../../../state/Provider';
 
 function FireMap(locationFromDb) {
   const { location } = useGeoLocation();
-  const { locationSwitch } = useSwitch();
 
   let longitude;
   let latitude;
 
   {
-    locationFromDb.locationFromDb.latitude && !locationSwitch
+    locationFromDb.locationFromDb.latitude
       ? ((longitude = locationFromDb.locationFromDb.longitude),
-        (latitude = locationFromDb.locationFromDb.latitude))
+      (latitude = locationFromDb.locationFromDb.latitude))
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
 
