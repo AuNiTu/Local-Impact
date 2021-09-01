@@ -6,31 +6,33 @@ import styles from './headerStyles.css';
 const Header = () => {
   const session = useSession();
   const logout = useLogout();
-  const { setLoading } = useLoading();
-
-  // if (loading) return <h2>Loading</h2>;
+  const { loading } = useLoading();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setLoading(true);
     logout();
   };
 
+  if (loading) return <h2>Loading...</h2>;
+
   return (
-    <header className={styles.Header}>
-      <section>
-        <h1>Hack the Planet</h1>
-      </section>
-      {session ? (
-        <form onSubmit={handleSubmit}>
-          <button>Logout</button>
-        </form>
-      ) : (
+    <>
+      <section>{loading ? <h2>Loading...</h2> : <h2>Not Loading...</h2>}</section>
+      <header className={styles.Header}>
         <section>
-          <OneLogin />
+          <h1>Hack the Planet</h1>
         </section>
-      )}
-    </header>
+        {session ? (
+          <form onSubmit={handleSubmit}>
+            <button>Logout</button>
+          </form>
+        ) : (
+          <section>
+            <OneLogin />
+          </section>
+        )}
+      </header>
+    </>
   );
 };
 

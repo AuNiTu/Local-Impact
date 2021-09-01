@@ -1,56 +1,56 @@
-// import React, { useState } from 'react';
-// import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
-// import { useUpdate, useSession } from '../../state/SessionProvider';
+import React, { useState } from 'react';
+import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
+import { useUpdate, useSession } from '../../state/SessionProvider';
 
-// function LocationChange() {
-//   const { location, setLocation } = useGeoLocation();
-//   const { setAddress } = useAddress();
-//   const { setLocationSwitch } = useSwitch();
-//   const update = useUpdate();
-//   const session = useSession();
-//   const [searchLoc, setSearchLoc] = useState();
+function LocationChange() {
+  const { location, setLocation } = useGeoLocation();
+  const { setAddress } = useAddress();
+  const { setLocationSwitch } = useSwitch();
+  const update = useUpdate();
+  const session = useSession();
+  const [searchLoc, setSearchLoc] = useState();
 
-//   const handleSubmitGeoLocation = (e) => {
-//     e.preventDefault();
+  const handleSubmitGeoLocation = (e) => {
+    e.preventDefault();
 
-//     navigator.geolocation.getCurrentPosition((position) => {
-//       const latitude = position.coords.latitude;
-//       const longitude = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
 
-//       setLocation({ longitude, latitude });
-//       setLocationSwitch(true);
-//     });
-//   };
+      setLocation({ longitude, latitude });
+      setLocationSwitch(true);
+    });
+  };
 
-//   const handleChange = ({ target }) => {
-//     setSearchLoc(target.value);
-//   };
+  const handleChange = ({ target }) => {
+    setSearchLoc(target.value);
+  };
 
-//   const handleAddressChange = (e) => {
-//     e.preventDefault();
-//     setAddress(searchLoc);
-//     setLocationSwitch(true);
-//   };
+  const handleAddressChange = (e) => {
+    e.preventDefault();
+    setAddress(searchLoc);
+    setLocationSwitch(true);
+  };
 
-//   const handlePut = () => {
-//     update(session.username, location.longitude, location.latitude);
-//   };
+  const handlePut = () => {
+    update(session.username, location.longitude, location.latitude);
+  };
 
-//   return (
-//     <>
-//       <form onSubmit={handleAddressChange}>
-//         <input
-//           type="text"
-//           placeholder="enter address or click get location 🌐"
-//           value={searchLoc}
-//           onChange={handleChange}
-//         />
-//         <button>Find</button>
-//       </form>
-//       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
-//       <button onClick={handlePut}>Commit Location to My Account</button>
-//     </>
-//   );
-// }
+  return (
+    <>
+      <form onSubmit={handleAddressChange}>
+        <input
+          type="text"
+          placeholder="enter address or click get location 🌐"
+          value={searchLoc}
+          onChange={handleChange}
+        />
+        <button>Find</button>
+      </form>
+      <button onClick={handleSubmitGeoLocation}>Get My Location</button>
+      <button onClick={handlePut}>Commit Location to My Account</button>
+    </>
+  );
+}
 
-// export default LocationChange;
+export default LocationChange;

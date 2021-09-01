@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
-import { useSignup, useLogin } from '../../state/SessionProvider';
+import { useSignup, useLogin, useLoading } from '../../state/SessionProvider';
 import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
 export default function OneLogin() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('username');
+  const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
+  const { loading } = useLoading();
   const signup = useSignup();
   const login = useLogin();
 
@@ -24,11 +25,15 @@ export default function OneLogin() {
   const handleSubmitSignUp = async (event) => {
     event.preventDefault();
     signup(username, password, location.longitude, location.latitude);
+    setUsername('');
+    setPassword('');
   };
 
   const handleSubmitLogin = async (e) => {
     e.preventDefault();
     login(username, password);
+    setUsername('');
+    setPassword('');
   };
 
   const handleSubmitGeoLocation = (e) => {
@@ -53,7 +58,11 @@ export default function OneLogin() {
     setSignUp(!isSignUp);
   };
 
-  console.log(location);
+  const clear = (e) => {
+    e.target.value = '';
+  };
+
+  if (loading) return <h2>Loading...</h2>;
 
   return (
     <>
@@ -71,6 +80,7 @@ export default function OneLogin() {
             placeholder="username"
             value={username}
             onChange={handleChange}
+            onFocus={((e) => clear(e))}
             required
           ></input>
           <input
@@ -79,6 +89,7 @@ export default function OneLogin() {
             placeholder="password"
             value={password}
             onChange={handleChange}
+            onFocus={((e) => clear(e))}
             required
           ></input>
           {isSignUp ?
@@ -91,7 +102,7 @@ export default function OneLogin() {
               ></input>
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
             </section> : <section></section>}
-          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password}>🔑 Login</button>}
+          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password || username === 'username' || password === 'password'}>🔑 Login</button>}
         </form>
       </section>
     </>

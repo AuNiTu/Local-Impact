@@ -32,6 +32,7 @@ export const UserProvider = ({ children }) => {
         setValue,
         locationSwitch,
         setLocationSwitch,
+        loading
       }}
     >
       {children}
@@ -55,7 +56,7 @@ export const useValue = () => {
   return { value, setValue };
 };
 
-// export const useSwitch = () => {
-//   const { locationSwitch, setLocationSwitch } = useContext(UserContext);
-//   return { locationSwitch, setLocationSwitch };
-// };
+export const useSwitch = () => {
+  const { locationSwitch, setLocationSwitch } = useContext(UserContext);
+  return { locationSwitch, setLocationSwitch };
+};

@@ -14,6 +14,7 @@ function AltFuelMap(locationFromDb) {
       (latitude = locationFromDb.locationFromDb.latitude))
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
+  
   const [ref] = useWebMap('511dfe0a721c40f598cb2195c2a02527', {
     view: {
       center: [longitude, latitude],

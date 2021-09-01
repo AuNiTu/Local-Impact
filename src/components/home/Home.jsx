@@ -6,7 +6,7 @@ const Home = () => {
   return (
     <>
       <main className={styles.Home}>
-        <Video />
+        {/* <Video /> */}
       </main>
 
       <main className={styles.MissionStatement}>
