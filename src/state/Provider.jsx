@@ -15,8 +15,6 @@ export const UserProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [news, setNews] = useState();
   const [searchTerm, setSearchTerm] = useState();
-  // const [coordinates, setCoordinates] = useState();
-
 
   // useEffect to trigger fetch here
 
@@ -49,8 +47,6 @@ export const UserProvider = ({ children }) => {
         setNews,
         searchTerm,
         setSearchTerm,
-        // coordinates,
-        // setCoordinates
       }}
     >
       {children}
@@ -88,8 +84,3 @@ export const useSearchTerm = () => {
   const { searchTerm, setSearchTerm } = useContext(UserContext);
   return { searchTerm, setSearchTerm };
 };
-
-// export const useCoordinates = () => {
-//   const { coordinates, setCoordinates } = useContext(UserContext);
-//   return { coordinates, setCoordinates };
-// };

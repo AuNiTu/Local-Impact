@@ -102,7 +102,7 @@ export default function OneLogin() {
               ></input>
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
             </section> : <section></section>}
-          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password || username === 'username' || password === 'password'}>🔑 Login</button>}
+          {isSignUp ? <button disabled={!location.longitude || !username || !password || username === 'username' || password === 'password'}>🔑 Signup</button> : <button disabled={!username || !password || username === 'username' || password === 'password'}>🔑 Login</button>}
         </form>
       </section>
     </>

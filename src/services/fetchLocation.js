@@ -11,10 +11,14 @@ export const fetchAddress = async (address) => {
 };
 
 export const fetchCoordinates = async (coordinates) => {
-
-  const res = await fetch(
-    `https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=${coordinates}&f=json&token=${process.env.ARCGIS_API_KEY}`
-  );
-  const json = await res.json();
-  return json.address.City;
+  console.log(coordinates);
+  if (coordinates !== undefined) {
+    const res = await fetch(
+      `https://geocode-api.arcgis.com/arcgis/rest/services/World/GeocodeServer/reverseGeocode?location=${coordinates}&f=json&token=${process.env.ARCGIS_API_KEY}`
+    );
+    const json = await res.json();
+    return json.address.City;
+  } else {
+    return '';
+  }
 };
