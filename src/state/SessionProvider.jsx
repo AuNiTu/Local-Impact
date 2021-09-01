@@ -19,31 +19,17 @@ export const SessionProvider = ({ children }) => {
 
   const [dbLocation, setDbLocation] = useState({});
 
-
   const signup = async (username, password, longitude, latitude) => {
-
     setLoading(true);
-    setLoading((loading) => {
-      console.log(loading); 
-      return loading;
-    });   
 
     try {
       const user = await postSignup(username, password, longitude, latitude);
       setSession(user);
       history.push('/map');
-    }
-
-    catch(err) {
+    } catch (err) {
       console.log(err);
-    }
-
-    finally {
+    } finally {
       setLoading(false);
-      setLoading((loading) => {
-        console.log(loading); 
-        return loading;
-      });   
     }
   };
 
@@ -53,60 +39,34 @@ export const SessionProvider = ({ children }) => {
 
   const login = async (username, password) => {
     setLoading(true);
-    setLoading((loading) => {
-      console.log(loading);    
-      return loading;
-    });    
-    
+
     try {
       setSession(await postLogin(username, password));
       const interLocation = await fetchUserLocation(username);
       setLoading(false);
       setDbLocation(interLocation);
       history.push('/map');
-    }
-
-    catch(err) {
+    } catch (err) {
       console.log(err);
-    }
-
-    finally {
+    } finally {
       setLoading(false);
-      setLoading((loading) => {
-        console.log(loading); 
-        return loading;
-      });   
     }
   };
 
   const logout = async () => {
-
     setLoading(true);
-    setLoading((loading) => {
-      console.log(loading); 
-      return loading;
-    });   
 
     try {
       await getLogout();
       setSession(null);
       setDbLocation({});
       history.push('/');
-    }
-
-    catch(err) {
+    } catch (err) {
       console.log(err);
-    }
-
-    finally {
+    } finally {
       setLoading(false);
-      setLoading((loading) => {
-        console.log(loading); 
-        return loading;
-      });   
     }
   };
-
 
   return (
     <SessionContext.Provider
@@ -125,16 +85,6 @@ export const SessionProvider = ({ children }) => {
     </SessionContext.Provider>
   );
 };
-
-// export const PrivateRoute = (props) => {
-//   const session = useSession();
-//   const loading = useAuthLoading();
-
-//   if (loading) return <h1> Loading ...</h1>;
-//   if (!session && !loading) return <Redirect to="/" />;
-
-//   return <Route {...props} />;
-// };
 
 export const useSession = () => {
   const { session } = useContext(SessionContext);

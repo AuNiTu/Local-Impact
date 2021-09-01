@@ -12,7 +12,7 @@ import { webMaps } from './map/webmaps';
 import { useDbLocation } from '../../state/SessionProvider';
 import { useValue } from '../../state/Provider';
 
-import Location from './MapLocationChange';
+// import Location from './MapLocationChange';
 import Links from '../lower/HelpfulLinks';
 import Advice from '../lower/WhatCanIdo';
 
@@ -33,7 +33,7 @@ function MapView() {
 
   return (
     <>
-      <Location />
+      {/* <Location /> */}
       {Maps[value]}
       <select onChange={(e) => setValue(e.currentTarget.value)}>
         {webMaps.map(({ id, name }) => (

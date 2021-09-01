@@ -17,7 +17,6 @@ const Header = () => {
 
   return (
     <>
-      <section>{loading ? <h2>Loading...</h2> : <h2>Not Loading...</h2>}</section>
       <header className={styles.Header}>
         <section>
           <h1>Hack the Planet</h1>
