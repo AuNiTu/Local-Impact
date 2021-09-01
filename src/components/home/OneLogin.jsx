@@ -4,17 +4,14 @@ import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
 export default function OneLogin() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('username');
+  const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
-
+  const { loading } = useLoading();
   const signup = useSignup();
   const login = useLogin();
-  const { loading, setLoading } = useLoading();
-
-  if (loading) return <h2>Loading</h2>;
 
   const handleChange = ({ target }) => {
     if (target.name === 'username') setUsername(target.value);
@@ -25,16 +22,18 @@ export default function OneLogin() {
     setAddress(target.value);
   };
 
-  const handleSubmitSignUp = (event) => {
+  const handleSubmitSignUp = async (event) => {
     event.preventDefault();
-    setLoading(true);
     signup(username, password, location.longitude, location.latitude);
+    setUsername('');
+    setPassword('');
   };
 
-  const handleSubmitLogin = (e) => {
+  const handleSubmitLogin = async (e) => {
     e.preventDefault();
-    setLoading(true);
     login(username, password);
+    setUsername('');
+    setPassword('');
   };
 
   const handleSubmitGeoLocation = (e) => {
@@ -43,15 +42,27 @@ export default function OneLogin() {
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
+      // const altitude = position.coords.altitude;
+      // const accuracy = position.coords.accuracy;
+      // const altitudeAccuracy = position.coords.altitudeAccuracy;
+      // const heading = position.coords.height;
+      // const speed = position.coords.speed;
+      // const timestamp = position.timestamp;
 
       setLocation({ longitude, latitude });
-      // need a loading spinner
+
     });
   };
 
   const handleSwitch = () => {
     setSignUp(!isSignUp);
   };
+
+  const clear = (e) => {
+    e.target.value = '';
+  };
+
+  if (loading) return <h2>Loading...</h2>;
 
   return (
     <>
@@ -69,6 +80,7 @@ export default function OneLogin() {
             placeholder="username"
             value={username}
             onChange={handleChange}
+            onFocus={((e) => clear(e))}
             required
           ></input>
           <input
@@ -77,28 +89,20 @@ export default function OneLogin() {
             placeholder="password"
             value={password}
             onChange={handleChange}
+            onFocus={((e) => clear(e))}
             required
           ></input>
-          {isSignUp ? (
+          {isSignUp ?
             <section>
               <input
                 type="text"
                 placeholder="enter address or click get location 🌐"
                 value={address}
                 onChange={handleAddressChange}
-              />
+              ></input>
               <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
-            </section>
-          ) : (
-            <section></section>
-          )}
-          {isSignUp ? (
-            <button disabled={!location.longitude || !username || !password}>
-              🔑 Signup
-            </button>
-          ) : (
-            <button disabled={!username || !password}>🔑 Login</button>
-          )}
+            </section> : <section></section>}
+          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password || username === 'username' || password === 'password'}>🔑 Login</button>}
         </form>
       </section>
     </>

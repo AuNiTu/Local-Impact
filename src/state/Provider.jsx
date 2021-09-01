@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
-import { fetchAddress } from '../components/arcGIS/services/fetchLocation';
+import { fetchAddress } from '../services/fetchLocation';
 
 const UserContext = createContext();
 
@@ -32,6 +32,7 @@ export const UserProvider = ({ children }) => {
         setValue,
         locationSwitch,
         setLocationSwitch,
+        loading
       }}
     >
       {children}

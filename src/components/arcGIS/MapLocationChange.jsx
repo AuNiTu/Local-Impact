@@ -33,7 +33,6 @@ function LocationChange() {
   };
 
   const handlePut = () => {
-    console.log(session);
     update(session.username, location.longitude, location.latitude);
   };
 

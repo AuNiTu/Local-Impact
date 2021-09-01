@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useEffect, useState } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import {
   postLogin,
@@ -16,21 +16,35 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [buttonClick, setButtonClick] = useState(false);
 
   const [dbLocation, setDbLocation] = useState({});
 
-  useEffect(() => {
-    if (buttonClick === true) setLoading(!loading);
-    setButtonClick(false);
-  }, [buttonClick]);
 
   const signup = async (username, password, longitude, latitude) => {
-    setButtonClick(true);
-    if (loading) return <h2> Loading... </h2>;
-    const user = await postSignup(username, password, longitude, latitude);
-    setSession(user);
-    history.push('/map');
+
+    setLoading(true);
+    setLoading((loading) => {
+      console.log(loading); 
+      return loading;
+    });   
+
+    try {
+      const user = await postSignup(username, password, longitude, latitude);
+      setSession(user);
+      history.push('/map');
+    }
+
+    catch(err) {
+      console.log(err);
+    }
+
+    finally {
+      setLoading(false);
+      setLoading((loading) => {
+        console.log(loading); 
+        return loading;
+      });   
+    }
   };
 
   const update = async (username, longitude, latitude) => {
@@ -38,22 +52,61 @@ export const SessionProvider = ({ children }) => {
   };
 
   const login = async (username, password) => {
-    setButtonClick(true);
-    if (loading) return <h2> Loading... </h2>;
-    setSession(await postLogin(username, password));
-    const interLocation = await fetchUserLocation(username);
-    setDbLocation(interLocation);
-    history.push('/map');
+    setLoading(true);
+    setLoading((loading) => {
+      console.log(loading);    
+      return loading;
+    });    
+    
+    try {
+      setSession(await postLogin(username, password));
+      const interLocation = await fetchUserLocation(username);
+      setLoading(false);
+      setDbLocation(interLocation);
+      history.push('/map');
+    }
+
+    catch(err) {
+      console.log(err);
+    }
+
+    finally {
+      setLoading(false);
+      setLoading((loading) => {
+        console.log(loading); 
+        return loading;
+      });   
+    }
   };
 
   const logout = async () => {
-    setButtonClick(true);
-    if (loading) return <h2> Loading... </h2>;
-    await getLogout();
-    setSession(null);
-    setDbLocation({});
-    history.push('/');
+
+    setLoading(true);
+    setLoading((loading) => {
+      console.log(loading); 
+      return loading;
+    });   
+
+    try {
+      await getLogout();
+      setSession(null);
+      setDbLocation({});
+      history.push('/');
+    }
+
+    catch(err) {
+      console.log(err);
+    }
+
+    finally {
+      setLoading(false);
+      setLoading((loading) => {
+        console.log(loading); 
+        return loading;
+      });   
+    }
   };
+
 
   return (
     <SessionContext.Provider
@@ -65,7 +118,6 @@ export const SessionProvider = ({ children }) => {
         login,
         update,
         logout,
-        buttonClick,
         dbLocation,
       }}
     >
