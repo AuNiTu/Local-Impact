@@ -10,6 +10,7 @@ export const UserProvider = ({ children }) => {
   const [address, setAddress] = useState();
   const [location, setLocation] = useState({});
   const [value, setValue] = useState(0);
+  const [locationSwitch, setLocationSwitch] = useState(false);
   const [loading, setLoading] = useState(true);
 
   // useEffect to trigger fetch here
@@ -29,6 +30,8 @@ export const UserProvider = ({ children }) => {
         setAddress,
         value,
         setValue,
+        locationSwitch,
+        setLocationSwitch,
       }}
     >
       {children}
@@ -50,4 +53,9 @@ export const useAddress = () => {
 export const useValue = () => {
   const { value, setValue } = useContext(UserContext);
   return { value, setValue };
+};
+
+export const useSwitch = () => {
+  const { locationSwitch, setLocationSwitch } = useContext(UserContext);
+  return { locationSwitch, setLocationSwitch };
 };
