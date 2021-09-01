@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useGeoLocation, useAddress, useSwitch } from '../../state/Provider';
+import { useGeoLocation, useAddress } from '../../state/Provider';
 import {
   useUpdate,
   useSession,
@@ -7,10 +7,10 @@ import {
 } from '../../state/SessionProvider';
 
 function LocationChange() {
-  const { location, setLocation } = useGeoLocation();
-  const { dbLocation, setDbLocation } = useDbLocation();
+  const { location } = useGeoLocation();
+  const { setDbLocation } = useDbLocation();
   const { setAddress } = useAddress();
-  // const { setLocationSwitch } = useSwitch();
+
   const update = useUpdate();
   const session = useSession();
   const [searchLoc, setSearchLoc] = useState();
@@ -23,7 +23,6 @@ function LocationChange() {
       const longitude = position.coords.longitude;
 
       setDbLocation({ longitude, latitude });
-      // setLocationSwitch(true);
     });
   };
 
