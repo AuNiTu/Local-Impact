@@ -1,17 +1,19 @@
 import React from 'react';
-
 import Header from '../constants/Header';
 import Footer from '../constants/Footer';
-import Map from '../arcGIS/Map';
-
-// eslint-disable-next-line no-unused-vars
-import styles from './app.css';
+import { Route, Switch, Redirect } from 'react-router-dom';
+import Home from '../home/Home';
+import MapView from '../arcGIS/MapView';
 
 export default function App() {
   return (
     <>
       <Header />
-      <Map />
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/map" exact component={MapView} />
+        <Redirect to="/" />
+      </Switch>
       <Footer />
     </>
   );

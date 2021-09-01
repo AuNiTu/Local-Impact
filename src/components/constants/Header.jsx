@@ -1,10 +1,38 @@
 import React from 'react';
-import styles from './styles.css';
+import OneLogin from '../home/OneLogin';
+import { useSession, useLogout, useLoading } from '../../state/SessionProvider';
+import styles from './headerStyles.css';
 
-const Header = () => (
-  <header className={styles.header}>
-    <h1>Local Impact</h1>
-  </header>
-);
+const Header = () => {
+  const session = useSession();
+  const logout = useLogout();
+  const { loading } = useLoading();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    logout();
+  };
+
+  if (loading) return <h2>Loading...</h2>;
+
+  return (
+    <>
+      <header className={styles.Header}>
+        <section>
+          <h1>Hack the Planet</h1>
+        </section>
+        {session ? (
+          <form onSubmit={handleSubmit}>
+            <button>Logout</button>
+          </form>
+        ) : (
+          <section>
+            <OneLogin />
+          </section>
+        )}
+      </header>
+    </>
+  );
+};
 
 export default Header;
