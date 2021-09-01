@@ -1,11 +1,14 @@
-export const newsApi = async (search) => {
+export const fetchNews = async (search) => {
 
   const res = await fetch(
-    `https://newsapi.org/v2/everything?q=${search}
-      &apiKey=${process.env.NEWS_KEY}`
+    `https://gnews.io/api/v4/search?q=${search}&token=a6e553fa6ab39143454bd99982e6995a`
   );
 
   const json = await res.json();
 
   return json;
+
+
 };
+
+

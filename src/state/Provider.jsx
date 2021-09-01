@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../services/fetchLocation';
+import { fetchNews } from '../services/newsApi';
 
 const UserContext = createContext();
 
@@ -12,6 +13,10 @@ export const UserProvider = ({ children }) => {
   const [value, setValue] = useState(0);
   const [locationSwitch, setLocationSwitch] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [news, setNews] = useState();
+  const [searchTerm, setSearchTerm] = useState();
+  // const [coordinates, setCoordinates] = useState();
+
 
   // useEffect to trigger fetch here
 
@@ -20,6 +25,13 @@ export const UserProvider = ({ children }) => {
       .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
       .finally(() => setLoading(false));
   }, [address]);
+
+  useEffect(() => {
+    fetchNews(searchTerm)
+      .then((res) => setNews(res))
+      .finally(() => setLoading(false));
+  }, [searchTerm]);
+
 
   return (
     <UserContext.Provider
@@ -32,7 +44,13 @@ export const UserProvider = ({ children }) => {
         setValue,
         locationSwitch,
         setLocationSwitch,
-        loading
+        loading,
+        news,
+        setNews,
+        searchTerm,
+        setSearchTerm,
+        // coordinates,
+        // setCoordinates
       }}
     >
       {children}
@@ -60,3 +78,18 @@ export const useSwitch = () => {
   const { locationSwitch, setLocationSwitch } = useContext(UserContext);
   return { locationSwitch, setLocationSwitch };
 };
+
+export const useNews = () => {
+  const { news, setNews } = useContext(UserContext);
+  return { news, setNews };
+};
+
+export const useSearchTerm = () => {
+  const { searchTerm, setSearchTerm } = useContext(UserContext);
+  return { searchTerm, setSearchTerm };
+};
+
+// export const useCoordinates = () => {
+//   const { coordinates, setCoordinates } = useContext(UserContext);
+//   return { coordinates, setCoordinates };
+// };

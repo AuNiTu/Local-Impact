@@ -64,6 +64,7 @@
   },
   "dependencies": {
     "@arcgis/core": "^4.20.2",
+    "@esri/arcgis-rest-geocoding": "^3.3.0",
     "@esri/react-arcgis": "^5.1.0",
     "esri-loader": "^2.16.0",
     "esri-loader-hooks": "^0.2.0",
