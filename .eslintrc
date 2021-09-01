@@ -60,7 +60,7 @@
             "after": false
           },
           "catch": {
-            "after": false
+            "after": true
           }
         }
       }
