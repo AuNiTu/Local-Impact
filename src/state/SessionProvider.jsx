@@ -58,7 +58,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      window.location.replace('https://local-impact.netlify.app/');
+      window.location.replace('http://localhost:7891/');
     } catch (err) {
       console.log(err);
     } finally {
@@ -87,7 +87,7 @@ export const SessionProvider = ({ children }) => {
 
 export const useSession = () => {
   const { session } = useContext(SessionContext);
-  return session;
+  return { session };
 };
 
 export const useAuthLoading = () => {
@@ -107,7 +107,7 @@ export const useLogin = () => {
 
 export const useUpdate = () => {
   const { update } = useContext(SessionContext);
-  return update;
+  return { update };
 };
 
 export const useLogout = () => {

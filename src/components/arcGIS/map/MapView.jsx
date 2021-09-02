@@ -23,6 +23,7 @@ function MapView() {
 
   const { update } = useUpdate();
   const { session } = useSession();
+
   const { dbLocation, setDbLocation } = useDbLocation();
 
   const [changeLocation, setChangeLocation] = useState(false);
