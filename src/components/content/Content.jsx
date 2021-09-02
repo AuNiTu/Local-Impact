@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Map from '../arcGis/MapView';
+import Map from '../arcGIS/MapView';
 
 import Links from '../lower/HelpfulLinks';
 import Advice from '../lower/WhatCanIdo';
@@ -8,7 +8,7 @@ import News from '../lower/News';
 
 import styles from './Content.css';
 
-function MapView() {
+function Content() {
   return (
     <>
       <Map />
@@ -21,4 +21,4 @@ function MapView() {
   );
 }
 
-export default MapView;
+export default Content;
