@@ -15,8 +15,8 @@ export const webMaps = [
     id: 2,
   },
   {
-    name: 'Deforestation',
-    map: '2020fcd1d4bf4c68ab99545304695f9c',
+    name: 'Power Plants',
+    map: 'f18b0ae4d06743bd87cbaea51e8109e9',
     id: 3,
   },
   {
