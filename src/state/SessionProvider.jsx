@@ -58,9 +58,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      setSession(null);
-      setDbLocation({});
-      history.push('/');
+      window.location.replace('https://local-impact.netlify.app/');
     } catch (err) {
       console.log(err);
     } finally {
