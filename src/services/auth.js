@@ -20,4 +20,5 @@ export const fetchUserLocation = async (username) => {
   const res = await fetch(`https://local-impact.herokuapp.com/auth/location/${username}`);
   const json = await res.json();
   return json;
+  
 };
