@@ -4,7 +4,7 @@ import { useAddress, useGeoLocation } from '../../state/Provider';
 import styles from './Login.css';
 
 export default function OneLogin() {
-  const [username, setUsername] = useState('username');
+  const [username, setUsername] = useState('👤 username');
   const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
   const { location, setLocation } = useGeoLocation();
@@ -42,15 +42,8 @@ export default function OneLogin() {
     navigator.geolocation.getCurrentPosition((position) => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      // const altitude = position.coords.altitude;
-      // const accuracy = position.coords.accuracy;
-      // const altitudeAccuracy = position.coords.altitudeAccuracy;
-      // const heading = position.coords.height;
-      // const speed = position.coords.speed;
-      // const timestamp = position.timestamp;
 
       setLocation({ longitude, latitude });
-
     });
   };
 
@@ -77,22 +70,20 @@ export default function OneLogin() {
           <input
             type="text"
             name="username"
-            placeholder="username"
             value={username}
             onChange={handleChange}
-            onFocus={((e) => clear(e))}
+            onFocus={(e) => clear(e)}
             required
           ></input>
           <input
             type="password"
             name="password"
-            placeholder="password"
             value={password}
             onChange={handleChange}
-            onFocus={((e) => clear(e))}
+            onFocus={(e) => clear(e)}
             required
           ></input>
-          {isSignUp ?
+          {isSignUp ? (
             <section>
               <input
                 type="text"
@@ -100,9 +91,27 @@ export default function OneLogin() {
                 value={address}
                 onChange={handleAddressChange}
               ></input>
-              <button onClick={handleSubmitGeoLocation}>📍 Get Location</button>
-            </section> : <section></section>}
-          {isSignUp ? <button disabled={!location.longitude || !username || !password}>🔑 Signup</button> : <button disabled={!username || !password || username === 'username' || password === 'password'}>🔑 Login</button>}
+              <button onClick={handleSubmitGeoLocation}>📍</button>
+            </section>
+          ) : (
+            <section></section>
+          )}
+          {isSignUp ? (
+            <button disabled={!location.longitude || !username || !password}>
+              🔑 Signup
+            </button>
+          ) : (
+            <button
+              disabled={
+                !username ||
+                !password ||
+                username === 'username' ||
+                password === 'password'
+              }
+            >
+              🔑 Login
+            </button>
+          )}
         </form>
       </section>
     </>
