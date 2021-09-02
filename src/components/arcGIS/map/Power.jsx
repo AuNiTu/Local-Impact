@@ -3,7 +3,7 @@ import { useWebMap } from 'esri-loader-hooks';
 import { useGeoLocation } from '../../../state/Provider';
 import { useDbLocation } from '../../../state/SessionProvider';
 
-function DeforestationMap() {
+function PowerPlantsMap() {
   const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
 
@@ -16,7 +16,7 @@ function DeforestationMap() {
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
 
-  const [ref] = useWebMap('2020fcd1d4bf4c68ab99545304695f9c', {
+  const [ref] = useWebMap('f18b0ae4d06743bd87cbaea51e8109e9', {
     view: {
       center: [longitude, latitude],
       zoom: 8,
@@ -26,4 +26,4 @@ function DeforestationMap() {
   return <div style={{ height: '60vh' }} ref={ref}></div>;
 }
 
-export default DeforestationMap;
+export default PowerPlantsMap;
