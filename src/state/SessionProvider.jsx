@@ -77,6 +77,7 @@ export const SessionProvider = ({ children }) => {
         update,
         logout,
         dbLocation,
+        setDbLocation,
       }}
     >
       {children}
@@ -120,6 +121,6 @@ export const useLoading = () => {
 };
 
 export const useDbLocation = () => {
-  const { dbLocation } = useContext(SessionContext);
-  return dbLocation;
+  const { dbLocation, setDbLocation } = useContext(SessionContext);
+  return { dbLocation, setDbLocation };
 };
