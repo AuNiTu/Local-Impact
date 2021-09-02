@@ -21,16 +21,17 @@ const Header = () => {
         <section>
           <h1>Hack the Planet</h1>
         </section>
-        {session ? (
-          <form onSubmit={handleSubmit}>
-            <p>Logged in as {session.username}</p>
-            <button>Logout</button>
-          </form>
-        ) : (
-          <section>
+        <section>
+          {session ? (
+            <form onSubmit={handleSubmit}>
+              <p>Logged in as</p>
+              <p>{session.username}</p>
+              <button>Logout</button>
+            </form>
+          ) : (
             <OneLogin />
-          </section>
-        )}
+          )}
+        </section>
       </header>
     </>
   );

@@ -15,8 +15,8 @@ function MapView() {
       <div className={styles.help}>
         <Links />
         <Advice />
-        <News />
       </div>
+      <News />
     </>
   );
 }

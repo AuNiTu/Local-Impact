@@ -27,22 +27,35 @@
   margin-right: 5px;
 }
 
+.MissionStatement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  width: 100vw;
+}
+
 .MissionStatement div {
   opacity: 88%;
   background-color: white;
   padding: 10px;
   margin-top: 50px;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 8px;
 }
 
 footer {
   background-color: black;
   color: blanchedalmond;
   opacity: 70%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
 
   display: flex;
   align-items: center;
   justify-content: space-between;
-  bottom: 0;
 
   width: 100%;
   height: 5vh;
