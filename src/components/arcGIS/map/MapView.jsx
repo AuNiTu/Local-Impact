@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import FireMap from './Fire';
 import AirBlotchMap from './AirBlotch';
 import AirSensorMap from './AirSensor';
-import DeforestationMap from './Deforestation';
+import PowerplantsMap from './Powerplants';
 import AltFuelMap from './AltFuel';
 import FetchingMap from './NewLoc';
 import { webMaps } from './webmaps';
@@ -31,7 +31,7 @@ function MapView() {
     <FireMap />,
     <AirBlotchMap />,
     <AirSensorMap />,
-    <DeforestationMap />,
+    <PowerplantsMap />,
     <AltFuelMap />,
   ]);
 
