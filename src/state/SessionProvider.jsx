@@ -87,7 +87,7 @@ export const SessionProvider = ({ children }) => {
 
 export const useSession = () => {
   const { session } = useContext(SessionContext);
-  return session;
+  return { session };
 };
 
 export const useAuthLoading = () => {
@@ -107,7 +107,7 @@ export const useLogin = () => {
 
 export const useUpdate = () => {
   const { update } = useContext(SessionContext);
-  return update;
+  return { update };
 };
 
 export const useLogout = () => {

@@ -4,7 +4,7 @@ import { useSession, useLogout, useLoading } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
 
 const Header = () => {
-  const session = useSession();
+  const { session } = useSession();
   const logout = useLogout();
   const { loading } = useLoading();
 
@@ -23,6 +23,7 @@ const Header = () => {
         </section>
         {session ? (
           <form onSubmit={handleSubmit}>
+            <p>Logged in as {session.username}</p>
             <button>Logout</button>
           </form>
         ) : (
