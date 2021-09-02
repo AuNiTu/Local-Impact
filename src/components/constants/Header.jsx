@@ -2,7 +2,6 @@ import React from 'react';
 import OneLogin from '../home/OneLogin';
 import { useSession, useLogout, useLoading } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
-// import styles from '../About.css'
 
 import { useHistory } from 'react-router';
 
@@ -27,11 +26,10 @@ const Header = () => {
     <>
 
       <header className={styles.Header}>
+
         <section>
           <h1>Hack the Planet</h1>
-
           <button value="/" onClick={handleClick}>🏛️ Home </button>
-
           <button value="/about" onClick={handleClick}>🔮 About</button>
         </section> 
 
