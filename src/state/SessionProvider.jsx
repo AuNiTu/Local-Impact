@@ -58,7 +58,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      window.location.replace('http://localhost:7891/');
+      window.location.replace('https://local-impact.netlify.app/');
     } catch (err) {
       console.log(err);
     } finally {
