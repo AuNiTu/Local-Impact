@@ -65,7 +65,7 @@ function MapView() {
   };
 
   useEffect(() => {
-    setDbLocation(location);
+    if (location.longitude) setDbLocation(location);
   }, [location]);
 
   useEffect(() => {
