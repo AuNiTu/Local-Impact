@@ -6,7 +6,7 @@ import styles from './headerStyles.css';
 import { NavLink } from 'react-router-dom';
 
 const Header = () => {
-  const session = useSession();
+  const { session } = useSession();
   const logout = useLogout();
   const { loading } = useLoading();
 
@@ -43,6 +43,7 @@ const Header = () => {
         </section>
         {session ? (
           <form onSubmit={handleSubmit}>
+            <p>Logged in as {session.username}</p>
             <button>Logout</button>
           </form>
         ) : (

@@ -1,7 +1,7 @@
 import React from 'react';
 import { whatToDo } from './advice';
 import { useValue } from '../../state/Provider';
-import styles from '../arcGIS/MapView.css';
+import styles from '../content/Content.css';
 
 function Advice() {
   const { value } = useValue();
