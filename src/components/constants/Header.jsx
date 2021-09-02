@@ -18,10 +18,8 @@ const Header = () => {
   return (
     <>
       <header className={styles.Header}>
-        <section>
-          <h1>Hack the Planet</h1>
-        </section>
-        <section>
+        <h1>Hack the Planet</h1>
+        <section className={styles.form}>
           {session ? (
             <form onSubmit={handleSubmit}>
               <p>Logged in as</p>

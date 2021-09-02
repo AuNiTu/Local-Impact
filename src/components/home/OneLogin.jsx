@@ -67,35 +67,37 @@ export default function OneLogin() {
 
       <section className={styles.Login}>
         <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
-          <input
-            type="text"
-            name="username"
-            value={username}
-            onChange={handleChange}
-            onFocus={(e) => clear(e)}
-            required
-          ></input>
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-            onFocus={(e) => clear(e)}
-            required
-          ></input>
-          {isSignUp ? (
-            <section>
-              <input
-                type="text"
-                placeholder="enter address or click get location 🌐"
-                value={address}
-                onChange={handleAddressChange}
-              ></input>
-              <button onClick={handleSubmitGeoLocation}>📍</button>
-            </section>
-          ) : (
-            <section></section>
-          )}
+          <section className={styles.inputStyles}>
+            <input
+              type="text"
+              name="username"
+              value={username}
+              onChange={handleChange}
+              onFocus={(e) => clear(e)}
+              required
+            ></input>
+            <input
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+              onFocus={(e) => clear(e)}
+              required
+            ></input>
+            {isSignUp ? (
+              <section>
+                <input
+                  type="text"
+                  placeholder="enter address or click get location 🌐"
+                  value={address}
+                  onChange={handleAddressChange}
+                ></input>
+                <button onClick={handleSubmitGeoLocation}>📍</button>
+              </section>
+            ) : (
+              <section></section>
+            )}
+          </section>
           {isSignUp ? (
             <button disabled={!location.longitude || !username || !password}>
               🔑 Signup
