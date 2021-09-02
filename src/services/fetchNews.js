@@ -4,7 +4,7 @@ export const fetchNews = async (search) => {
   );
 
   const json = await res.json();
-  console.log(json);
+  if (json.errors) return { articles: [], totalArticles: 0 };
   return json;
 
 };

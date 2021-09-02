@@ -1,17 +1,21 @@
 import React from 'react';
-import { useGeoLocation, useSearchTerm, useValue, useNews } from '../../state/Provider';
+import {
+  useGeoLocation,
+  useSearchTerm,
+  useValue,
+  useNews,
+} from '../../state/Provider';
 import { fetchCoordinates } from '../../services/fetchLocation';
 import { useDbLocation } from '../../state/SessionProvider';
 import Article from './Article';
-import newsStyles from '../../styles/newsStyles.css';
+import newsStyles from './newsStyles.css';
 
 export default function News() {
-
   const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
-  const { searchTerm, setSearchTerm } = useSearchTerm();
-  const { value, setValue } = useValue();
-  const { news, setNews } = useNews();
+  const { setSearchTerm } = useSearchTerm();
+  const { value } = useValue();
+  const { news } = useNews();
 
   let topic;
 
@@ -22,7 +26,7 @@ export default function News() {
   } else if (value == 2) {
     topic = 'air+quality';
   } else if (value == 3) {
-    topic = 'forest';
+    topic = 'power+plants';
   } else if (value == 4) {
     topic = 'fuel';
   }
@@ -39,9 +43,9 @@ export default function News() {
     // .then((city) => console.log(topic + '+' + city));
     .then((city) => setSearchTerm(topic + '+' + city));
 
-  console.log(news);
-
-  if (news.totalArticles === 0) return <h1>No News Is Good News</h1>;
+  if (news.totalArticles === 0) {
+    return <h3>No News Is Good News</h3>;
+  }
 
   const newsElements = news.articles.map((article) => (
     <li className={newsStyles.newsList} key={article.title}>
@@ -56,5 +60,4 @@ export default function News() {
   ));
 
   return <ul>{newsElements}</ul>;
-
 }
