@@ -33,7 +33,7 @@ const Header = () => {
           <button value="/" onClick={handleClick}>🏛️ Home </button>
 
           <button value="/about" onClick={handleClick}>🔮 About</button>
-        </section>
+        </section> 
 
         {session ? (
           <form onSubmit={handleSubmit}>
