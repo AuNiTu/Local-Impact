@@ -16,10 +16,10 @@ function PowerPlantsMap() {
       : ((longitude = location.longitude), (latitude = location.latitude));
   }
 
-  const [ref] = useWebMap('2020fcd1d4bf4c68ab99545304695f9c', {
+  const [ref] = useWebMap('f18b0ae4d06743bd87cbaea51e8109e9', {
     view: {
       center: [longitude, latitude],
-      zoom: 8,
+      zoom: 10,
     },
   });
 
