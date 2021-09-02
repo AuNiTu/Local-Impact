@@ -6,7 +6,7 @@ import styles from './About.css';
 const About = () => {
   return (
     <>
-      <AboutVideo />
+      {/* <AboutVideo /> */}
       <main className={styles.About}>
         <h3>About Us</h3> 
       </main>

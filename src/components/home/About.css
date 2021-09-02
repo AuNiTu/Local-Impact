@@ -4,8 +4,9 @@
     opacity: 65%;
 }
 
-.About Person h3 {
+.Person {
     background-color: white;
-    color: white;
+    opacity:80%;
+    color: black;
 }
 
