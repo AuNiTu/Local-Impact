@@ -3,7 +3,7 @@ import { useWebMap } from 'esri-loader-hooks';
 import { useGeoLocation } from '../../../state/Provider';
 import { useDbLocation } from '../../../state/SessionProvider';
 
-function DeforestationMap() {
+function PowerPlantsMap() {
   const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
 
@@ -26,4 +26,4 @@ function DeforestationMap() {
   return <div style={{ height: '60vh' }} ref={ref}></div>;
 }
 
-export default DeforestationMap;
+export default PowerPlantsMap;
