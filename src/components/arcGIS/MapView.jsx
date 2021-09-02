@@ -4,6 +4,7 @@ import Map from './map/MapView';
 
 import Links from '../lower/HelpfulLinks';
 import Advice from '../lower/WhatCanIdo';
+import News from './News';
 
 import styles from './MapView.css';
 
@@ -14,6 +15,7 @@ function MapView() {
       <div className={styles.help}>
         <Links />
         <Advice />
+        <News />
       </div>
     </>
   );

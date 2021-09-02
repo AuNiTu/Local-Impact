@@ -1,0 +1,10 @@
+.articleImage {
+  height: fit-content;
+  width: fit-content;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(1rem, 1fr));
+}
