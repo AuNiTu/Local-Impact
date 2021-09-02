@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import FireMap from './map/Fire';
 import AirBlotchMap from './map/AirBlotch';
 import AirSensorMap from './map/AirSensor';
-import PowerPlantsMap from './map/PowerPlants';
+import PowerPlantsMap from './map/Power';
 import AltFuelMap from './map/AltFuel';
 import FetchingMap from './map/NewLoc';
 import { webMaps } from './map/webmaps';
