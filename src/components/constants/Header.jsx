@@ -23,8 +23,8 @@ const Header = () => {
         </section>
         {session ? (
           <form onSubmit={handleSubmit}>
-            <button>Logout</button>
             <p>Logged in as {session.username}</p>
+            <button>Logout</button>
           </form>
         ) : (
           <section>
