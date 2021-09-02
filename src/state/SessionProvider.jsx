@@ -58,9 +58,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      setSession(null);
-      setDbLocation({});
-      history.push('/');
+      window.location.replace('http://localhost:7891/');
     } catch (err) {
       console.log(err);
     } finally {
@@ -79,6 +77,7 @@ export const SessionProvider = ({ children }) => {
         update,
         logout,
         dbLocation,
+        setDbLocation,
       }}
     >
       {children}
@@ -122,6 +121,6 @@ export const useLoading = () => {
 };
 
 export const useDbLocation = () => {
-  const { dbLocation } = useContext(SessionContext);
-  return dbLocation;
+  const { dbLocation, setDbLocation } = useContext(SessionContext);
+  return { dbLocation, setDbLocation };
 };

@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../services/fetchLocation';
+import { useDbLocation } from './SessionProvider';
 
 const UserContext = createContext();
 
@@ -32,7 +33,7 @@ export const UserProvider = ({ children }) => {
         setValue,
         locationSwitch,
         setLocationSwitch,
-        loading
+        loading,
       }}
     >
       {children}
