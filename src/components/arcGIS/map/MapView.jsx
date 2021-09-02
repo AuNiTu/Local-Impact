@@ -35,8 +35,6 @@ function MapView() {
     <AltFuelMap />,
   ]);
 
-  const mapLoader = <FetchingMap />;
-
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
     setChangeLocation(true);
@@ -86,7 +84,7 @@ function MapView() {
       <button onClick={handleSubmitGeoLocation}>Get My Location</button>
       <button onClick={handlePut}>Commit Location to My Account</button>
 
-      {changeLocation ? mapLoader : Maps[value]}
+      {changeLocation ? <FetchingMap /> : Maps[value]}
 
       <select onChange={(e) => setValue(e.currentTarget.value)}>
         {webMaps.map(({ id, name }) => (
