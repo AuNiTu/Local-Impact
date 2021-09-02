@@ -59,11 +59,11 @@ export default function OneLogin() {
 
   return (
     <>
-      <button onClick={handleSwitch}>
+      <section className={styles.signUp} onClick={handleSwitch}>
         {isSignUp
           ? 'Already Signed up? Login'
           : 'Not Signed Up? Create Account'}
-      </button>
+      </section>
 
       <section className={styles.Login}>
         <form onSubmit={isSignUp ? handleSubmitSignUp : handleSubmitLogin}>
@@ -92,16 +92,18 @@ export default function OneLogin() {
                   value={address}
                   onChange={handleAddressChange}
                 ></input>
-                <button onClick={handleSubmitGeoLocation}>📍</button>
               </section>
             ) : (
               <section></section>
             )}
           </section>
           {isSignUp ? (
-            <button disabled={!location.longitude || !username || !password}>
+            <section>
+              <button disabled={!location.longitude || !username || !password}>
               🔑 Signup
-            </button>
+              </button>
+              <button onClick={handleSubmitGeoLocation}>🌐</button>
+            </section>
           ) : (
             <button
               disabled={

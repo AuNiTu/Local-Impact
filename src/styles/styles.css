@@ -1,6 +1,11 @@
-.Home {
-  padding: 20px;
+html,
+body {
+  margin: 0;
 }
+
+/* .Home {
+  padding: 20px;
+} */
 
 .Home input {
   height: 20px;
@@ -11,8 +16,6 @@
 .Home button {
   height: 25px;
   position: fixed;
-  /* left: 30rem;
-  right: 46rem; */
   border-radius: 1px;
   padding: 3px;
 }
@@ -31,8 +34,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 80vh;
-  width: 100vw;
+  height: 50vh;
 }
 
 .MissionStatement div {
@@ -45,18 +47,18 @@
   border-radius: 8px;
 }
 
-footer {
-  background-color: black;
-  color: blanchedalmond;
-  opacity: 70%;
-  position: fixed;
-  bottom: 0;
-  left: 0;
+button {
+  padding: 0.5rem;
+  opacity: 0.7;
+  font-family: 'Playfair Display SC';
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 0.1rem solid black;
+  margin: 0.1rem;
+  background-color: lightgrey;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  width: 100%;
-  height: 5vh;
+button:hover {
+  background-color: gray;
+  color: black;
 }
