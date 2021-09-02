@@ -3,7 +3,7 @@ import Header from '../constants/Header';
 import Footer from '../constants/Footer';
 import { Route, Switch, Redirect } from 'react-router-dom';
 import Home from '../home/Home';
-import MapView from '../arcGIS/MapView';
+import Content from '../content/Content';
 
 export default function App() {
   return (
@@ -11,7 +11,7 @@ export default function App() {
       <Header />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/map" exact component={MapView} />
+        <Route path="/map" exact component={Content} />
         <Redirect to="/" />
       </Switch>
       <Footer />

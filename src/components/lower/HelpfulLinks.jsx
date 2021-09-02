@@ -2,7 +2,7 @@ import React from 'react';
 import { useValue } from '../../state/Provider';
 import { whatToDo } from './advice';
 import link from './links';
-import styles from '../arcGIS/MapView.css';
+import styles from '../content/Content.css';
 
 function Links() {
   const { value } = useValue();
