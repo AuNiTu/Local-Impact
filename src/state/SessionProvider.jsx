@@ -58,9 +58,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      setSession(null);
-      setDbLocation({});
-      history.push('/');
+      window.location.replace('http://localhost:7891/');
     } catch (err) {
       console.log(err);
     } finally {
