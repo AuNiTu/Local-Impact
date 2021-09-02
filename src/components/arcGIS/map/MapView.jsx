@@ -61,7 +61,7 @@ function MapView() {
   };
 
   const handlePut = () => {
-    update(session.username, location.longitude, location.latitude);
+    update(session.username, dbLocation.longitude, dbLocation.latitude);
   };
 
   useEffect(() => {
