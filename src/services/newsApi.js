@@ -1,7 +1,9 @@
 export const fetchNews = async (search) => {
   console.log(search);
   const res = await fetch(
-    `https://gnews.io/api/v4/search?q=${search}&token=a6e553fa6ab39143454bd99982e6995a`
+    `https://gnews.io/api/v4/search?q=${search}&token=8abe68986a4ee03be3f5276fbf128ef3
+
+    `
   );
 
   const json = await res.json();

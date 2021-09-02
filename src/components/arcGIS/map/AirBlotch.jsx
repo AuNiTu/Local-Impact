@@ -1,24 +1,20 @@
 import React from 'react';
 import { useWebMap } from 'esri-loader-hooks';
-import { useGeoLocation, useSearchTerm } from '../../../state/Provider';
-import { fetchCoordinates } from '../../../services/fetchLocation';
+import { useGeoLocation } from '../../../state/Provider';
+import { useDbLocation } from '../../../state/SessionProvider';
 
-function AirBlotchMap(locationFromDb) {
-
+function AirBlotchMap() {
   const { location } = useGeoLocation();
-  const { searchTerm, setSearchTerm } = useSearchTerm();
+  const { dbLocation } = useDbLocation();
 
   let longitude;
   let latitude;
 
-  
-  locationFromDb.locationFromDb.latitudemap
-    ? ((longitude = locationFromDb.locationFromDb.longitude),
-    (latitude = locationFromDb.locationFromDb.latitude))
-    : ((longitude = location.longitude), (latitude = location.latitude));
-  
-
-  const coordinates = longitude + ',' + latitude;
+  {
+    dbLocation.latitude
+      ? ((longitude = dbLocation.longitude), (latitude = dbLocation.latitude))
+      : ((longitude = location.longitude), (latitude = location.latitude));
+  }
 
   const coordinatesToAddress = fetchCoordinates(coordinates).then((city) => setSearchTerm('air quality ' + city));
   
