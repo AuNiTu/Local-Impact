@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import FireMap from './map/Fire';
 import AirBlotchMap from './map/AirBlotch';
@@ -25,7 +25,7 @@ function MapView() {
 
   const { update } = useUpdate();
   const { session } = useSession();
-  const { committedLocation } = useCommittedLocation();
+  const { committedLocation, setCommittedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
 
@@ -76,6 +76,10 @@ function MapView() {
     setChangeLocation(false);
   }, [dbLocation]);
 
+  setTimeout(() => {
+    setCommittedLocation(false);
+  }, 10000);
+
   return (
     <>
       <section className={styles.MapViewContainer}>
@@ -91,8 +95,7 @@ function MapView() {
           </form>
           <button onClick={handleSubmitGeoLocation}>Get My Location</button>
           <button onClick={handlePut}>Commit Location to My Account</button>
-          {committedLocation ? <h1>Location Changed</h1> : <h1></h1>}
-          {}
+          {committedLocation ? <h1 id="goaway" className={styles.locationUpdated}>Location Updated</h1> : <h1></h1>}
         </div>
       </section>
       {changeLocation ? mapLoader : Maps[value]}
