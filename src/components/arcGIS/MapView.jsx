@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-key */
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 import FireMap from './map/Fire';
 import AirBlotchMap from './map/AirBlotch';
@@ -15,6 +15,7 @@ import {
   useUpdate,
   useSession,
   useDbLocation,
+  useCommittedLocation,
 } from '../../state/SessionProvider';
 
 function MapView() {
@@ -24,6 +25,7 @@ function MapView() {
 
   const { update } = useUpdate();
   const { session } = useSession();
+  const { committedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
 
@@ -89,6 +91,8 @@ function MapView() {
           </form>
           <button onClick={handleSubmitGeoLocation}>Get My Location</button>
           <button onClick={handlePut}>Commit Location to My Account</button>
+          {committedLocation ? <h1>Location Changed</h1> : <h1></h1>}
+          {}
         </div>
       </section>
       {changeLocation ? mapLoader : Maps[value]}
