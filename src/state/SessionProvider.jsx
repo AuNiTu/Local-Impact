@@ -135,6 +135,6 @@ export const useDbLocation = () => {
 };
 
 export const useCommittedLocation = () => {
-  const { committedLocation } = useContext(SessionContext);
-  return { committedLocation };
+  const { committedLocation, setCommittedLocation } = useContext(SessionContext);
+  return { committedLocation, setCommittedLocation };
 };
