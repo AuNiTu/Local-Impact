@@ -9,8 +9,8 @@ function Advice() {
 
   return (
     <section className={styles.advice}>
-      <h3>{title}</h3>
-      <ul>
+      <h3>Advice: {title}</h3>
+      <ul className={styles.adviceList}>
         {advice.map((thing) => {
           if (!thing) return <p>No Advice Found</p>;
           return <li key={thing}>{thing}</li>;
