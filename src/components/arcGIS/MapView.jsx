@@ -78,7 +78,7 @@ function MapView() {
 
   setTimeout(() => {
     setCommittedLocation(false);
-  }, 10000);
+  }, 4000);
 
   return (
     <>
