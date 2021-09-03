@@ -1,6 +1,10 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 body {
   margin: 0;
-  background-color: #b5e48c;
+  background-color: #76c893;
 }
 
 .Home input {
@@ -44,17 +48,17 @@ body {
 }
 
 button {
-  padding: 0.5rem;
-  opacity: 0.7;
-  font-family: 'Playfair Display SC';
-  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
   border-radius: 0.5rem;
-  border: 0.1rem solid black;
+  border: 0.1rem solid #b5e48c;
   margin: 0.1rem;
-  background-color: lightgrey;
+  background-color: #1a759f;
+  color: white;
 }
 
 button:hover {
-  background-color: gray;
-  color: black;
+  background-color: #1e6091;
+  color: white;
 }

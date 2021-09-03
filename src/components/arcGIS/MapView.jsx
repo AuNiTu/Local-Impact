@@ -93,13 +93,18 @@ function MapView() {
       </section>
       {changeLocation ? mapLoader : Maps[value]}
 
-      <select onChange={(e) => setValue(e.currentTarget.value)}>
-        {webMaps.map(({ id, name }) => (
-          <option key={id} value={id}>
-            {name}
-          </option>
-        ))}
-      </select>
+      <section className={styles.mapSelectContainer}>
+        <select
+          className={styles.mapSelect}
+          onChange={(e) => setValue(e.currentTarget.value)}
+        >
+          {webMaps.map(({ id, name }) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
+        </select>
+      </section>
     </>
   );
 }

@@ -52,7 +52,7 @@ export default function News() {
       <Article
         title={article.title}
         description={article.description}
-        content={article.content}
+        publishedAt={article.publishedAt}
         image={article.image}
         url={article.url}
       />

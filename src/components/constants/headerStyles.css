@@ -1,19 +1,21 @@
 .Header {
-  background-color: rgba(240, 248, 255, 0.8);
-  width: 98vw;
+  background-color: #184e77;
+  color: white;
+  max-width: 98vw;
   top: 0;
   left: 0;
   padding-top: 1rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  opacity: 80%;
+  opacity: 95%;
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: 1fr;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .Header h1 {
-  color: #5ca08e;
+  color: #d9ed92;
   font-family: 'Playfair Display SC';
   font-size: 2.5rem;
   margin-top: 0px;
