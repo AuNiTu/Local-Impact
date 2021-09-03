@@ -13,6 +13,7 @@ function Links() {
     simpleThingsBBC,
     UNCarbon,
     climateCommunity,
+    whiteHousePowerPlantStatement,
   } = link;
 
   return (
@@ -35,6 +36,9 @@ function Links() {
         })}
 
         <h4>General Articles</h4>
+        <a href={whiteHousePowerPlantStatement} target="_blank" rel="noreferrer">
+        United States Executive Order for climate change
+        </a>
         <a href={polarBear} target="_blank" rel="noreferrer">
           Determining False Information
         </a>

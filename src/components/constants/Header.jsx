@@ -25,12 +25,10 @@ const Header = () => {
       <header className={styles.Header}>
         <section>
           <h1>Hack the Planet</h1>
-          <button value="/" onClick={handleClick}>
-            🏛️ Home
-          </button>
-          <button value="/about" onClick={handleClick}>
-            🔮 About
-          </button>
+          <h4>Here to help discern the truth, with data & tech</h4> 
+          <button value="/" onClick={handleClick}>🏛️ Home </button>
+          <button value="/about" onClick={handleClick}>🔮 Leadership</button>
+          <button value="/esriPartnership" onClick={handleClick}>🌱 Partner with ESRI</button>
           {session ? (
             <button value="/map" onClick={handleClick}>
               🗺️ Map
@@ -38,7 +36,7 @@ const Header = () => {
           ) : (
             <div></div>
           )}
-        </section>
+        </section> 
 
         {session ? (
           <form onSubmit={handleSubmit}>
