@@ -37,13 +37,11 @@ const About = () => {
             <img src="./LinkedIn.png" className={styles.icon} />
           </a>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            I&apos;m a fullstack software developer. I have great concern for
+            our environment and I want to use my technical prowess to make a
+            difference in our struggle against global warming. My experience
+            growing up with an artist and in technical and creative writing
+            gives me an eye for design and clean code.
           </p>
 
           <h2>Austi</h2>
