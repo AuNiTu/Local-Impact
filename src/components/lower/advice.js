@@ -84,6 +84,14 @@ export const whatToDo = [
         title: '🏭 Saftey 101 for Power Plant Managers',
         url: 'https://www.ehstoday.com/safety/article/21916915/survival-guide-safety-101-for-a-power-generation-facility',
       },
+      {
+        title: ' ✅ Become ISO certified',
+        url: 'https://www.iso.org/about-us.html',
+      },
+      {
+        title: '🤔 Why it\'s important to be ISO certified',
+        url: 'https://approachable.uk.com/importance-iso-standards-worldwide/#:~:text=ISO%20Standards%20are%20a%20key,and%20services%20in%20international%20trade.&text=Businesses%20can%20be%20seen%20to,and%20procedures%20put%20in%20place.',
+      }
     ]
   },
   {

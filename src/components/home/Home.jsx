@@ -13,9 +13,8 @@ const Home = () => {
         <div>
           <p>
             Local Change is a web app to see what&apos;s going on in your part
-            of the world. We utilize arcgis to show you different factors that
-            could be affecting your environment and how you are different from
-            the rest of the world.
+            of the world. We integrate ArcGIS; shining light on different factors that
+            could be affecting your environment. Our app informs. We are here to help guide ways you can contribute towards the common good.
           </p>
         </div>
       </main>
