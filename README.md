@@ -24,6 +24,12 @@ https://www.energy.gov/sites/prod/files/2013/10/f3/omguide_complete.pdf
 - CMM Group (Corporation who manufactuers Air Pollution Control Systems):
 https://www.thecmmgroup.com/reduce-air-pollution-factories-industrial-operations/
 
+- ISO Certification:
+https://www.iso.org/about-us.html
+
+- ISO Importance: 
+https://approachable.uk.com/importance-iso-standards-worldwide/#:~:text=ISO%20Standards%20are%20a%20key,and%20services%20in%20international%20trade.&text=Businesses%20can%20be%20seen%20to,and%20procedures%20put%20in%20place.
+
 ### Air Quality (Sensor & Blotch data):
 - NASA: 
 https://www.nasa.gov/feature/esnt/2021/qa-scientists-analyze-how-the-pandemic-affected-air-quality
@@ -33,6 +39,12 @@ https://www.epa.gov/air-sensor-toolbox/air-sensor-standard-operating-procedures-
 
 - Harvard: 
 https://www.health.harvard.edu/staying-healthy/easy-ways-you-can-improve-indoor-air-quality'
+
+### Alternative Fuel:
+- https://www.fueleconomy.gov/feg/driveHabits.jsp
+- https://www.waze.com/
+- https://www.toyota.com/car-tips/driving-tips-getting-best-fuel-economy/'
+
 
 
 ## Project Management Board [Link Here:](https://miro.com/app/board/o9J_l3984Ic=/)
