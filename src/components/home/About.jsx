@@ -46,13 +46,8 @@ const About = () => {
             <img src="./LinkedIn.png" className={styles.icon} />
           </a>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+            <p>Full stack software engineer. I have over 7+ years in operations & professional services, with an accounting/economics discipline. I have held positions as an ERP consultant to an account manager, working alongside janitors to C-suites, all over the US.  Enjoyable and easy to work with,  my mission is to build useful applications that solves real world, human-centered problems.</p>
+
           </p>
         </div>
       </main>
