@@ -13,8 +13,10 @@ function Content() {
     <>
       <Map />
       <div className={styles.help}>
-        <Links />
-        <Advice />
+        <div className={styles.containment}>
+          <Links />
+          <Advice />
+        </div>
       </div>
       <section className={styles.help}>
         <News />
