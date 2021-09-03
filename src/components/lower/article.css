@@ -1,0 +1,15 @@
+.articleImage {
+  max-height: 30rem;
+  max-width: 30rem;
+}
+
+.container,
+.container a {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(auto-fit, minmax(1rem, 1fr)); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}

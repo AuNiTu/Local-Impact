@@ -1,5 +1,10 @@
-.Home {
-  padding: 20px;
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+body {
+  margin: 0;
+  background-color: #76c893;
 }
 
 .Home input {
@@ -11,8 +16,6 @@
 .Home button {
   height: 25px;
   position: fixed;
-  /* left: 30rem;
-  right: 46rem; */
   border-radius: 1px;
   padding: 3px;
 }
@@ -27,23 +30,35 @@
   margin-right: 5px;
 }
 
+.MissionStatement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+}
+
 .MissionStatement div {
   opacity: 88%;
   background-color: white;
   padding: 10px;
   margin-top: 50px;
+  max-width: 500px;
+  text-align: center;
+  border-radius: 8px;
 }
 
-footer {
-  background-color: black;
-  color: blanchedalmond;
-  opacity: 70%;
+button {
+  padding: 0.2rem 0.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 100;
+  border-radius: 0.5rem;
+  border: 0.1rem solid #b5e48c;
+  margin: 0.1rem;
+  background-color: #1a759f;
+  color: white;
+}
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  bottom: 0;
-
-  width: 100%;
-  height: 5vh;
+button:hover {
+  background-color:#EDD892;
+  color: white;
 }

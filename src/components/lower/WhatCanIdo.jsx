@@ -1,7 +1,7 @@
 import React from 'react';
 import { whatToDo } from './advice';
 import { useValue } from '../../state/Provider';
-import styles from '../arcGIS/MapView.css';
+import styles from '../content/Content.css';
 
 function Advice() {
   const { value } = useValue();
@@ -9,8 +9,8 @@ function Advice() {
 
   return (
     <section className={styles.advice}>
-      <h3>{title}</h3>
-      <ul>
+      <h4>Advice: {title}</h4>
+      <ul className={styles.adviceList}>
         {advice.map((thing) => {
           if (!thing) return <p>No Advice Found</p>;
           return <li key={thing}>{thing}</li>;

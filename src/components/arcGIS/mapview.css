@@ -1,0 +1,7 @@
+.fetch {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #184e77;
+  color: white;
+}

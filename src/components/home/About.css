@@ -1,0 +1,33 @@
+.General {
+  margin: 0 3rem;
+  max-width: 50rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 5rem;
+}
+
+.About {
+  margin-bottom: 7rem;
+  background-color: white;
+  opacity: 65%;
+  max-width: 50rem;
+  border-radius: 1rem;
+  padding: 0 1rem;
+}
+
+.Person {
+  background-color: white;
+  padding: 2rem;
+  opacity: 80%;
+  color: black;
+  max-width: 50rem;
+  border-radius: 1rem;
+}
+
+.icon {
+  height: 2rem;
+  width: 2rem;
+  margin: 0 1rem;
+}
