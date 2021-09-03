@@ -77,7 +77,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             <input
               type="password"
               name="password"
@@ -85,7 +86,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             {isSignUp ? (
               <section>
                 <input
