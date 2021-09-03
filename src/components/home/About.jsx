@@ -20,13 +20,7 @@ const About = () => {
           </a>
 
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat. Duis aute irure dolor in
-            reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-            pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
+               Backend-leaning software engineer focused on user-centric pragmatic design with real world applications. My passion for coding began as a kid, building basic websites in HTML but decided on pursuing other career opportunities since then. I continued learning Scheme, C++, and SQL to accomplish hobbyist goals. Always eager to find solutions to problems and goals by continually learning. 
           </p>
 
           <h2>Nick</h2>
