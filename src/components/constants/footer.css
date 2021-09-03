@@ -1,6 +1,7 @@
 footer {
-  background-color: #184e77;
-  color: #d9ed92;
+  background-color: black;
+  opacity: 90%;
+  color:#ffedf2;
   /* opacity: 70%; */
   position: fixed;
   bottom: 0;

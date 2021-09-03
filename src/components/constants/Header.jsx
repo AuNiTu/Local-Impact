@@ -29,8 +29,10 @@ const Header = () => {
 
         <section>
           <h1>Hack the Planet</h1>
+          <h4>Here to help discern the truth, with data & tech</h4> 
           <button value="/" onClick={handleClick}>🏛️ Home </button>
-          <button value="/about" onClick={handleClick}>🔮 About</button>
+          <button value="/about" onClick={handleClick}>🔮 Leadership</button>
+          <button value="/esriPartnership" onClick={handleClick}>🌱 Partner with ESRI</button>
         </section> 
 
         {session ? (
