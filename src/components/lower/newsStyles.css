@@ -1,0 +1,16 @@
+.newsList {
+  list-style: none;
+  max-height: 40rem;
+  max-width: 40rem;
+
+  border-radius: 8px;
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: rgba(150, 226, 249, 0.8);
+}
+
+.newsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}

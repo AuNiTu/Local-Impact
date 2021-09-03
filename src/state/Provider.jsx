@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../services/fetchLocation';
-import { useDbLocation } from './SessionProvider';
+import { fetchNews } from '../services/fetchNews';
 
 const UserContext = createContext();
 
@@ -13,6 +13,8 @@ export const UserProvider = ({ children }) => {
   const [value, setValue] = useState(0);
   const [locationSwitch, setLocationSwitch] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [news, setNews] = useState();
+  const [searchTerm, setSearchTerm] = useState();
 
   // useEffect to trigger fetch here
 
@@ -21,6 +23,12 @@ export const UserProvider = ({ children }) => {
       .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
       .finally(() => setLoading(false));
   }, [address]);
+
+  useEffect(() => {
+    fetchNews(searchTerm)
+      .then((res) => setNews(res))
+      .finally(() => setLoading(false));
+  }, [searchTerm]);
 
   return (
     <UserContext.Provider
@@ -34,6 +42,10 @@ export const UserProvider = ({ children }) => {
         locationSwitch,
         setLocationSwitch,
         loading,
+        news,
+        setNews,
+        searchTerm,
+        setSearchTerm,
       }}
     >
       {children}
@@ -60,4 +72,14 @@ export const useValue = () => {
 export const useSwitch = () => {
   const { locationSwitch, setLocationSwitch } = useContext(UserContext);
   return { locationSwitch, setLocationSwitch };
+};
+
+export const useNews = () => {
+  const { news, setNews } = useContext(UserContext);
+  return { news, setNews };
+};
+
+export const useSearchTerm = () => {
+  const { searchTerm, setSearchTerm } = useContext(UserContext);
+  return { searchTerm, setSearchTerm };
 };

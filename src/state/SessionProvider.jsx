@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext, useState, useRef } from 'react';
 import { useHistory } from 'react-router';
 import {
   postLogin,
@@ -16,6 +16,7 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [committedLocation, setCommittedLocation] = useState(false);
 
   const [dbLocation, setDbLocation] = useState({});
 
@@ -34,7 +35,14 @@ export const SessionProvider = ({ children }) => {
   };
 
   const update = async (username, longitude, latitude) => {
-    await putLocation(username, longitude, latitude);
+    setLoading(true);
+    try {
+      await putLocation(username, longitude, latitude).then(() => setCommittedLocation(true));
+    } catch (err) {
+      console.log(err);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const login = async (username, password) => {
@@ -43,7 +51,6 @@ export const SessionProvider = ({ children }) => {
     try {
       setSession(await postLogin(username, password));
       const interLocation = await fetchUserLocation(username);
-      setLoading(false);
       setDbLocation(interLocation);
       history.push('/map');
     } catch (err) {
@@ -58,7 +65,7 @@ export const SessionProvider = ({ children }) => {
 
     try {
       await getLogout();
-      window.location.replace('http://localhost:7891/');
+      window.location.replace('https://local-impact.netlify.app/');
     } catch (err) {
       console.log(err);
     } finally {
@@ -78,6 +85,8 @@ export const SessionProvider = ({ children }) => {
         logout,
         dbLocation,
         setDbLocation,
+        committedLocation,
+        setCommittedLocation
       }}
     >
       {children}
@@ -87,7 +96,7 @@ export const SessionProvider = ({ children }) => {
 
 export const useSession = () => {
   const { session } = useContext(SessionContext);
-  return session;
+  return { session };
 };
 
 export const useAuthLoading = () => {
@@ -107,7 +116,7 @@ export const useLogin = () => {
 
 export const useUpdate = () => {
   const { update } = useContext(SessionContext);
-  return update;
+  return { update };
 };
 
 export const useLogout = () => {
@@ -123,4 +132,9 @@ export const useLoading = () => {
 export const useDbLocation = () => {
   const { dbLocation, setDbLocation } = useContext(SessionContext);
   return { dbLocation, setDbLocation };
+};
+
+export const useCommittedLocation = () => {
+  const { committedLocation, setCommittedLocation } = useContext(SessionContext);
+  return { committedLocation, setCommittedLocation };
 };

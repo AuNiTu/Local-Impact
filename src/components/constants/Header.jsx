@@ -3,26 +3,44 @@ import OneLogin from '../home/OneLogin';
 import { useSession, useLogout, useLoading } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
 
+import { useHistory } from 'react-router';
+
 const Header = () => {
-  const session = useSession();
+  const { session } = useSession();
   const logout = useLogout();
   const { loading } = useLoading();
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault();
     logout();
   };
 
-  if (loading) return <h2>Loading...</h2>;
+  const handleClick = ({ target }) => {
+    history.push(target.value);
+  };
 
   return (
-    <>
+    <section className={styles.headerContainer}>
       <header className={styles.Header}>
         <section>
           <h1>Hack the Planet</h1>
-        </section>
+          <h4>Here to help discern the truth, with data & tech</h4> 
+          <button value="/" onClick={handleClick}>🏛️ Home </button>
+          <button value="/about" onClick={handleClick}>🔮 Leadership</button>
+          <button value="/esriPartnership" onClick={handleClick}>🌱 Partner with ESRI</button>
+          {session ? (
+            <button value="/map" onClick={handleClick}>
+              🗺️ Map
+            </button>
+          ) : (
+            <div></div>
+          )}
+        </section> 
+
         {session ? (
           <form onSubmit={handleSubmit}>
+            <p>Logged in as {session.username}</p>
             <button>Logout</button>
           </form>
         ) : (
@@ -31,7 +49,8 @@ const Header = () => {
           </section>
         )}
       </header>
-    </>
+      {loading ? <h2 className={styles.loadingHeader}>Loading...</h2> : <section></section>}
+    </section>
   );
 };
 

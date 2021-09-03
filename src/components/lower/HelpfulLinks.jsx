@@ -2,17 +2,18 @@ import React from 'react';
 import { useValue } from '../../state/Provider';
 import { whatToDo } from './advice';
 import link from './links';
-import styles from '../arcGIS/MapView.css';
+import styles from '../content/Content.css';
 
 function Links() {
   const { value } = useValue();
-  const { title, links } = whatToDo[value];
+  const { links } = whatToDo[value];
   const {
     polarBear,
     simpleThingsDavis,
     simpleThingsBBC,
     UNCarbon,
     climateCommunity,
+    whiteHousePowerPlantStatement,
   } = link;
 
   return (
@@ -35,6 +36,9 @@ function Links() {
         })}
 
         <h4>General Articles</h4>
+        <a href={whiteHousePowerPlantStatement} target="_blank" rel="noreferrer">
+        United States Executive Order for climate change
+        </a>
         <a href={polarBear} target="_blank" rel="noreferrer">
           Determining False Information
         </a>
