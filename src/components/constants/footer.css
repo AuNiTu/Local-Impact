@@ -1,7 +1,7 @@
 footer {
   background-color: black;
   opacity: 90%;
-  color:#ffedf2;
+  color: #ffedf2;
   position: fixed;
   bottom: 0;
   left: 0;
@@ -17,4 +17,9 @@ footer {
 
 footer span {
   margin: 0 1rem;
+}
+
+.esri {
+  text-decoration: none;
+  color: #ffedf2;
 }

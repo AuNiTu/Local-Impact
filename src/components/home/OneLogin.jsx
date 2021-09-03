@@ -55,7 +55,7 @@ export default function OneLogin() {
     e.target.value = '';
   };
 
-  if (loading) return <h2>Loading...</h2>;
+  if (loading) return <h2>Contacting Database Gnomes</h2>;
 
   return (
     <>
@@ -100,7 +100,7 @@ export default function OneLogin() {
           {isSignUp ? (
             <section>
               <button disabled={!location.longitude || !username || !password}>
-              🔑 Signup
+                🔑 Signup
               </button>
               <button onClick={handleSubmitGeoLocation}>🌐</button>
             </section>
