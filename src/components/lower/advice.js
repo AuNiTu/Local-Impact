@@ -71,7 +71,7 @@ export const whatToDo = [
     title: 'Power Plants Tips for Managers/Executives',
     advice: [
       '- Streamline Factory Operations',
-      '- Eliminate pollutants before they enter the atmospere',
+      '- Eliminate pollutants before they enter the atmosphere',
       
 
     ],
@@ -81,7 +81,7 @@ export const whatToDo = [
         url: 'https://www.energy.gov/sites/prod/files/2013/10/f3/omguide_complete.pdf',
       },
       {
-        title: '🏭 Saftey 101 for Power Plant Managers',
+        title: '🏭 Safety 101 for Power Plant Managers',
         url: 'https://www.ehstoday.com/safety/article/21916915/survival-guide-safety-101-for-a-power-generation-facility',
       },
       {

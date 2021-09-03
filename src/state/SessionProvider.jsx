@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState, useRef } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import {
   postLogin,
@@ -37,7 +38,9 @@ export const SessionProvider = ({ children }) => {
   const update = async (username, longitude, latitude) => {
     setLoading(true);
     try {
-      await putLocation(username, longitude, latitude).then(() => setCommittedLocation(true));
+      await putLocation(username, longitude, latitude).then(() =>
+        setCommittedLocation(true)
+      );
     } catch (err) {
       console.log(err);
     } finally {
@@ -86,7 +89,7 @@ export const SessionProvider = ({ children }) => {
         dbLocation,
         setDbLocation,
         committedLocation,
-        setCommittedLocation
+        setCommittedLocation,
       }}
     >
       {children}
@@ -135,6 +138,7 @@ export const useDbLocation = () => {
 };
 
 export const useCommittedLocation = () => {
-  const { committedLocation, setCommittedLocation } = useContext(SessionContext);
+  const { committedLocation, setCommittedLocation } =
+    useContext(SessionContext);
   return { committedLocation, setCommittedLocation };
 };

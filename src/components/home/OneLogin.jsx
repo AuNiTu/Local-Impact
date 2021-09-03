@@ -7,9 +7,11 @@ export default function OneLogin() {
   const [username, setUsername] = useState('👤 username');
   const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
+
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
   const { loading } = useLoading();
+
   const signup = useSignup();
   const login = useLogin();
 

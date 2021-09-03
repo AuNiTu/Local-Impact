@@ -4,7 +4,7 @@ import articleStyles from './article.css';
 
 const Article = ({ title, description, publishedAt, image, url }) => {
   const date = publishedAt.split('T');
-  console.log(date);
+
   return (
     <section className={articleStyles.container}>
       <a href={url} target="_blank" rel="noreferrer">

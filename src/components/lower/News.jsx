@@ -39,9 +39,9 @@ export default function News() {
       : (coordinates = location.longitude + ',' + location.latitude);
   }
 
-  fetchCoordinates(coordinates) // should be a useEffect but whatever do what I want
-    // .then((city) => console.log(topic + '+' + city));
-    .then((city) => setSearchTerm(topic + '+' + city));
+  fetchCoordinates(coordinates).then((city) =>
+    setSearchTerm(topic + '+' + city)
+  );
 
   if (news.totalArticles === 0) {
     return <h4 className={newsStyles.newsList}>No News Is Good News</h4>;
