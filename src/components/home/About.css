@@ -1,12 +1,17 @@
 .About {
-    margin-bottom: 7rem;
-    background-color: white;
-    opacity: 65%;
+  margin-bottom: 7rem;
+  background-color: white;
+  opacity: 65%;
 }
 
 .Person {
-    background-color: white;
-    opacity:80%;
-    color: black;
+  background-color: white;
+  opacity: 80%;
+  color: black;
 }
 
+.icon {
+  height: 2rem;
+  width: 2rem;
+  margin: 0 1rem;
+}
