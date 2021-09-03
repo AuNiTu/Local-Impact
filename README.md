@@ -1,7 +1,7 @@
 # Local-Impact
 
 ## Cited Sources:
-### ESRI:
+### ESRI (Environmental Science Research Institution):
 - https://www.esri.com/en-us/industries/environment-natural-resources/overview
 
 ### WildFire(s): 
