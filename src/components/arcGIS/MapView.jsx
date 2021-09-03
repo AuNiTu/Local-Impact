@@ -8,6 +8,7 @@ import PowerPlantsMap from './map/Power';
 import AltFuelMap from './map/AltFuel';
 import FetchingMap from './map/NewLoc';
 import { webMaps } from './map/webmaps';
+import styles from '../content/Content.css';
 
 import { useValue, useGeoLocation, useAddress } from '../../state/Provider';
 import {
@@ -75,27 +76,35 @@ function MapView() {
 
   return (
     <>
-      <form onSubmit={handleAddressChange}>
-        <input
-          type="text"
-          placeholder="enter address or click get location 🌐"
-          value={searchLoc}
-          onChange={handleChange}
-        />
-        <button>Find</button>
-      </form>
-      <button onClick={handleSubmitGeoLocation}>Get My Location</button>
-      <button onClick={handlePut}>Commit Location to My Account</button>
-
+      <section className={styles.MapViewContainer}>
+        <div className={styles.Location}>
+          <form onSubmit={handleAddressChange}>
+            <input
+              type="text"
+              placeholder="enter address or click get location 🌐"
+              value={searchLoc}
+              onChange={handleChange}
+            />
+            <button>Find</button>
+          </form>
+          <button onClick={handleSubmitGeoLocation}>Get My Location</button>
+          <button onClick={handlePut}>Commit Location to My Account</button>
+        </div>
+      </section>
       {changeLocation ? mapLoader : Maps[value]}
 
-      <select onChange={(e) => setValue(e.currentTarget.value)}>
-        {webMaps.map(({ id, name }) => (
-          <option key={id} value={id}>
-            {name}
-          </option>
-        ))}
-      </select>
+      <section className={styles.mapSelectContainer}>
+        <select
+          className={styles.mapSelect}
+          onChange={(e) => setValue(e.currentTarget.value)}
+        >
+          {webMaps.map(({ id, name }) => (
+            <option key={id} value={id}>
+              {name}
+            </option>
+          ))}
+        </select>
+      </section>
     </>
   );
 }

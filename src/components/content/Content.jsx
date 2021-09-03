@@ -16,7 +16,9 @@ function Content() {
         <Links />
         <Advice />
       </div>
-      <News />
+      <section className={styles.help}>
+        <News />
+      </section>
     </>
   );
 }

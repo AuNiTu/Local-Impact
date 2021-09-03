@@ -4,11 +4,14 @@
 }
 
 .links {
-  border: black 1px solid;
-  width: 30vw;
+  border-radius: 8px;
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: rgba(150, 226, 249, 0.7);
 
   display: flex;
   flex-direction: column;
+  height: fit-content;
 }
 
 .links a {
@@ -16,7 +19,61 @@
 }
 
 .advice {
-  border: black 1px solid;
-  width: 60vw;
-  padding: 0 0.5rem;
+  border-radius: 8px;
+  margin: 2rem;
+  padding: 0.5rem;
+  background-color: rgba(150, 226, 249, 0.7);
+  height: fit-content;
+}
+
+.advice ul {
+  list-style: none;
+}
+
+.advice ul li {
+  padding-bottom: 1rem;
+}
+
+.Location {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-around;
+  width: fit-content;
+}
+
+.Location input {
+  height: 1.5rem;
+  width: 65%;
+  margin-bottom: 0.1rem;
+  margin-right: 0.3rem;
+  border-radius: 0.5rem;
+}
+
+.MapViewContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.mapSelectContainer {
+  display: flex;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.mapSelect {
+  padding: 0.2rem 0.5rem;
+  opacity: 0.7;
+  font-family: 'Playfair Display SC';
+  font-weight: bold;
+  border-radius: 0.5rem;
+  border: 0.1rem solid black;
+  margin: 0.1rem;
+  background-color: #1a759f;
+  color: white;
+}
+
+.mapSelect:active {
+  background-color: #1e6091;
+  color: white;
 }
