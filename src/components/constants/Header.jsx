@@ -24,14 +24,23 @@ const Header = () => {
 
   return (
     <>
-
       <header className={styles.Header}>
-
         <section>
           <h1>Hack the Planet</h1>
-          <button value="/" onClick={handleClick}>🏛️ Home </button>
-          <button value="/about" onClick={handleClick}>🔮 About</button>
-        </section> 
+          <button value="/" onClick={handleClick}>
+            🏛️ Home
+          </button>
+          <button value="/about" onClick={handleClick}>
+            🔮 About
+          </button>
+          {session ? (
+            <button value="/map" onClick={handleClick}>
+              🗺️ Map
+            </button>
+          ) : (
+            <div></div>
+          )}
+        </section>
 
         {session ? (
           <form onSubmit={handleSubmit}>
