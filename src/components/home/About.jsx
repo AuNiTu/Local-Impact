@@ -1,17 +1,10 @@
 /* eslint-disable max-len */
 import React from 'react';
 import styles from './About.css';
-import { useHistory } from 'react-router';
 
 const About = () => {
-  const history = useHistory();
-
-  const handleClick = ({ target }) => {
-    history.push(target.value);
-  };
-
   return (
-    <>
+    <section className={styles.General}>
       <main className={styles.About}>
         <h3>About Us</h3>
       </main>
@@ -71,7 +64,7 @@ const About = () => {
           </p>
         </div>
       </main>
-    </>
+    </section>
   );
 };
 
