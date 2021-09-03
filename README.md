@@ -1,6 +1,9 @@
 # Local-Impact
 
 ## Cited Sources:
+### ESRI:
+- https://www.esri.com/en-us/industries/environment-natural-resources/overview
+
 ### WildFire(s): 
 - Prevention Tips: 
 https://portal.ct.gov/DEEP/Forestry/Forest-Fire/Forest-Fire-Prevention-Tips
