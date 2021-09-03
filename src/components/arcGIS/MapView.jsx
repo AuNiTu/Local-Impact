@@ -75,20 +75,22 @@ function MapView() {
   }, [dbLocation]);
 
   return (
-    <section className={styles.MapViewContainer}>
-      <div className={styles.Location}>
-        <form onSubmit={handleAddressChange}>
-          <input
-            type="text"
-            placeholder="enter address or click get location 🌐"
-            value={searchLoc}
-            onChange={handleChange}
-          />
-          <button>Find</button>
-        </form>
-        <button onClick={handleSubmitGeoLocation}>Get My Location</button>
-        <button onClick={handlePut}>Commit Location to My Account</button>
-      </div>
+    <>
+      <section className={styles.MapViewContainer}>
+        <div className={styles.Location}>
+          <form onSubmit={handleAddressChange}>
+            <input
+              type="text"
+              placeholder="enter address or click get location 🌐"
+              value={searchLoc}
+              onChange={handleChange}
+            />
+            <button>Find</button>
+          </form>
+          <button onClick={handleSubmitGeoLocation}>Get My Location</button>
+          <button onClick={handlePut}>Commit Location to My Account</button>
+        </div>
+      </section>
       {changeLocation ? mapLoader : Maps[value]}
 
       <select onChange={(e) => setValue(e.currentTarget.value)}>
@@ -98,7 +100,7 @@ function MapView() {
           </option>
         ))}
       </select>
-    </section>
+    </>
   );
 }
 

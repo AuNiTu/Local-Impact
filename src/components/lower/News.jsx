@@ -59,5 +59,5 @@ export default function News() {
     </li>
   ));
 
-  return <ul>{newsElements}</ul>;
+  return <ul className={newsStyles.newsContainer}>{newsElements}</ul>;
 }

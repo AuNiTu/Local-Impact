@@ -5,7 +5,7 @@ const Article = ({ title, description, content, image, url }) => {
   return (
     <section className={articleStyles.container}>
       <a href={url} target="_blank" rel="noreferrer">
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <img
           className={articleStyles.articleImage}
           src={image}
@@ -13,7 +13,6 @@ const Article = ({ title, description, content, image, url }) => {
         ></img>
       </a>
       <h3>{description}</h3>
-      <p>{content}</p>
     </section>
   );
 };
