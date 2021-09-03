@@ -20,13 +20,9 @@ const Header = () => {
     history.push(target.value);
   };
 
-  if (loading) return <h2>Loading...</h2>;
-
   return (
-    <>
-
+    <section className={styles.headerContainer}>
       <header className={styles.Header}>
-
         <section>
           <h1>Hack the Planet</h1>
           <button value="/" onClick={handleClick}>🏛️ Home </button>
@@ -44,7 +40,8 @@ const Header = () => {
           </section>
         )}
       </header>
-    </>
+      {loading ? <h2 className={styles.loadingHeader}>Loading...</h2> : <section></section>}
+    </section>
   );
 };
 
