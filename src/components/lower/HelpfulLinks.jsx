@@ -6,7 +6,7 @@ import styles from '../content/Content.css';
 
 function Links() {
   const { value } = useValue();
-  const { title, links } = whatToDo[value];
+  const { links } = whatToDo[value];
   const {
     polarBear,
     simpleThingsDavis,

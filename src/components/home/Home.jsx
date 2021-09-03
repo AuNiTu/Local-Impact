@@ -12,9 +12,16 @@ const Home = () => {
       <main className={styles.MissionStatement}>
         <div>
           <p>
-            Local Change is a web app to see what&apos;s going on in your part
-            of the world. We integrate ArcGIS; shining light on different factors that
-            could be affecting your environment. Our app informs. We are here to help guide ways you can contribute towards the common good.
+            Hack the Planet is a web app designed to show you some of the
+            climate change factors in your area using ArcGIS maps from ESRI.
+          </p>
+          <p>
+            How is your area impacting climate change? What can you do to make
+            an impact?
+          </p>
+          <p>
+            Whether you wish to make changes to your habits or legislature,
+            we&apos;re here to help you figure out where to start.
           </p>
         </div>
       </main>

@@ -14,6 +14,11 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.headerContainer {
+  display: grid;
+  grid-template-rows: 2fr 1fr;
+}
+
 .Header h1 {
   color: #ffedf2;
   font-family: 'Playfair Display SC';
@@ -21,6 +26,14 @@
   margin-top: 0px;
   display: flex;
   align-items: center;
+}
+
+.loadingHeader {
+  color: #184e77;
+  font-family: 'Playfair Display SC';
+  font-size: 2rem;
+  margin-top: 0px;
+  justify-self: center;
 }
 
 .Header h4 {

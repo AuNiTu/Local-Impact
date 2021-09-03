@@ -20,19 +20,22 @@ const Header = () => {
     history.push(target.value);
   };
 
-  if (loading) return <h2>Loading...</h2>;
-
   return (
-    <>
-
+    <section className={styles.headerContainer}>
       <header className={styles.Header}>
-
         <section>
           <h1>Hack the Planet</h1>
           <h4>Here to help discern the truth, with data & tech</h4> 
           <button value="/" onClick={handleClick}>🏛️ Home </button>
           <button value="/about" onClick={handleClick}>🔮 Leadership</button>
           <button value="/esriPartnership" onClick={handleClick}>🌱 Partner with ESRI</button>
+          {session ? (
+            <button value="/map" onClick={handleClick}>
+              🗺️ Map
+            </button>
+          ) : (
+            <div></div>
+          )}
         </section> 
 
         {session ? (
@@ -46,7 +49,8 @@ const Header = () => {
           </section>
         )}
       </header>
-    </>
+      {loading ? <h2 className={styles.loadingHeader}>Loading...</h2> : <section></section>}
+    </section>
   );
 };
 

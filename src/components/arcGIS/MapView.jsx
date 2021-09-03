@@ -15,6 +15,7 @@ import {
   useUpdate,
   useSession,
   useDbLocation,
+  useCommittedLocation,
 } from '../../state/SessionProvider';
 
 function MapView() {
@@ -24,6 +25,7 @@ function MapView() {
 
   const { update } = useUpdate();
   const { session } = useSession();
+  const { committedLocation, setCommittedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
 
@@ -74,6 +76,10 @@ function MapView() {
     setChangeLocation(false);
   }, [dbLocation]);
 
+  setTimeout(() => {
+    setCommittedLocation(false);
+  }, 4000);
+
   return (
     <>
       <section className={styles.MapViewContainer}>
@@ -89,6 +95,7 @@ function MapView() {
           </form>
           <button onClick={handleSubmitGeoLocation}>Get My Location</button>
           <button onClick={handlePut}>Commit Location to My Account</button>
+          {committedLocation ? <h1 id="goaway" className={styles.locationUpdated}>Location Updated</h1> : <h1></h1>}
         </div>
       </section>
       {changeLocation ? mapLoader : Maps[value]}
