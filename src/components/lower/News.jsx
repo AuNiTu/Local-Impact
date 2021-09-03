@@ -44,7 +44,7 @@ export default function News() {
     .then((city) => setSearchTerm(topic + '+' + city));
 
   if (news.totalArticles === 0) {
-    return <h3>No News Is Good News</h3>;
+    return <h4 className={newsStyles.newsList}>No News Is Good News</h4>;
   }
 
   const newsElements = news.articles.map((article) => (

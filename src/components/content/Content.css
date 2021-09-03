@@ -26,6 +26,14 @@
   height: fit-content;
 }
 
+.advice ul {
+  list-style: none;
+}
+
+.advice ul li {
+  padding-bottom: 1rem;
+}
+
 .Location {
   margin: 1rem;
   display: flex;
