@@ -40,10 +40,15 @@ https://www.epa.gov/air-sensor-toolbox/air-sensor-standard-operating-procedures-
 - Harvard: 
 https://www.health.harvard.edu/staying-healthy/easy-ways-you-can-improve-indoor-air-quality'
 
-### Alternative Fuel:
-- https://www.fueleconomy.gov/feg/driveHabits.jsp
-- https://www.waze.com/
-- https://www.toyota.com/car-tips/driving-tips-getting-best-fuel-economy/'
+### Alternative Fuel Choices(s):
+- Fuel Economy: 
+https://www.fueleconomy.gov/feg/driveHabits.jsp
+
+- Waze GPS mobile app: 
+https://www.waze.com/
+
+- Toyota Tips: 
+https://www.toyota.com/car-tips/driving-tips-getting-best-fuel-economy/'
 
 
 
