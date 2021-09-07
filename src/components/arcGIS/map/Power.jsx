@@ -1,24 +1,13 @@
 import React from 'react';
 import { useWebMap } from 'esri-loader-hooks';
-import { useGeoLocation } from '../../../state/Provider';
 import { useDbLocation } from '../../../state/SessionProvider';
 
 function PowerPlantsMap() {
-  const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
-
-  let longitude;
-  let latitude;
-
-  {
-    dbLocation.latitude
-      ? ((longitude = dbLocation.longitude), (latitude = dbLocation.latitude))
-      : ((longitude = location.longitude), (latitude = location.latitude));
-  }
 
   const [ref] = useWebMap('f18b0ae4d06743bd87cbaea51e8109e9', {
     view: {
-      center: [longitude, latitude],
+      center: [dbLocation.longitude, dbLocation.latitude],
       zoom: 10,
     },
   });

@@ -27,7 +27,7 @@ function MapView() {
   const { committedLocation, setCommittedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
-  const [changeLocation, setChangeLocation] = useState(false);
+  const [changeLocation, setChangeLocation] = useState(true);
   const [searchLoc, setSearchLoc] = useState();
 
   const { value, setValue } = useValue();
