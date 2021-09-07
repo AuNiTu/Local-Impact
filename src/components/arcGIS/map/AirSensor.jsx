@@ -7,7 +7,7 @@ function AirSensorMap() {
 
   const [ref] = useWebMap('730f553d21ea49e5a6cf38fe6cc63dc4', {
     view: {
-      center: [dbLocation.longitude, dbLocation.latitude],
+      center: dbLocation,
       zoom: 8,
     },
   });

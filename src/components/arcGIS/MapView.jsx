@@ -47,7 +47,7 @@ function MapView() {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      setDbLocation({ longitude, latitude });
+      setDbLocation([longitude, latitude]);
     });
   };
 

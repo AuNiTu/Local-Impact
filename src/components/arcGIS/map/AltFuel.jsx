@@ -7,7 +7,7 @@ function AltFuelMap() {
 
   const [ref] = useWebMap('511dfe0a721c40f598cb2195c2a02527', {
     view: {
-      center: [dbLocation.longitude, dbLocation.latitude],
+      center: dbLocation,
       zoom: 10,
     },
   });

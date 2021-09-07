@@ -7,7 +7,7 @@ function PowerPlantsMap() {
 
   const [ref] = useWebMap('f18b0ae4d06743bd87cbaea51e8109e9', {
     view: {
-      center: [dbLocation.longitude, dbLocation.latitude],
+      center: dbLocation,
       zoom: 10,
     },
   });

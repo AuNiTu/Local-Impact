@@ -7,7 +7,7 @@ function FireMap() {
 
   const [ref] = useWebMap('89ff30d783b849c8b22fc812d4c2f205', {
     view: {
-      center: [dbLocation.longitude, dbLocation.latitude],
+      center: dbLocation,
       zoom: 8,
     },
   });

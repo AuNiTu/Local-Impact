@@ -54,7 +54,7 @@ export const SessionProvider = ({ children }) => {
     try {
       setSession(await postLogin(username, password));
       const interLocation = await fetchUserLocation(username);
-      setDbLocation(interLocation);
+      setDbLocation([interLocation.longitude, interLocation.latitude]);
       history.push('/map');
     } catch (err) {
       console.log(err);

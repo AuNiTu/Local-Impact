@@ -20,7 +20,7 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     fetchAddress(address)
-      .then((res) => setLocation({ longitude: res.x, latitude: res.y }))
+      .then((res) => setLocation([res.x, res.y]))
       .finally(() => setLoading(false));
   }, [address]);
 

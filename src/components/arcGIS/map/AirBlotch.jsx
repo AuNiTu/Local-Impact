@@ -7,7 +7,7 @@ function AirBlotchMap() {
 
   const [ref] = useWebMap('92e772c4f65a4848a29bcc24c8f61bab', {
     view: {
-      center: [dbLocation.longitude, dbLocation.latitude],
+      center: dbLocation,
       zoom: 8,
     },
   });
