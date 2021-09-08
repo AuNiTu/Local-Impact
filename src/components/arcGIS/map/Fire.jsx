@@ -1,6 +1,7 @@
 import React from 'react';
 import { useWebMap } from 'esri-loader-hooks';
 import { useDbLocation } from '../../../state/SessionProvider';
+import styles from './map.css';
 
 function FireMap() {
   const { dbLocation } = useDbLocation();
@@ -12,7 +13,7 @@ function FireMap() {
     },
   });
 
-  return <div style={{ height: '60vh', width: '80vw' }} ref={ref}></div>;
+  return <div className={styles.map} ref={ref}></div>;
 }
 
 export default FireMap;

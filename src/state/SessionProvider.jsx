@@ -17,7 +17,6 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [committedLocation, setCommittedLocation] = useState(false);
 
   const [dbLocation, setDbLocation] = useState({});
 
@@ -39,7 +38,7 @@ export const SessionProvider = ({ children }) => {
     setLoading(true);
     try {
       await putLocation(username, longitude, latitude).then(() =>
-        setCommittedLocation(true)
+        alert('Database Gnomes have updated your preferred location')
       );
     } catch (err) {
       console.log(err);
@@ -88,8 +87,6 @@ export const SessionProvider = ({ children }) => {
         logout,
         dbLocation,
         setDbLocation,
-        committedLocation,
-        setCommittedLocation,
       }}
     >
       {children}
@@ -135,10 +132,4 @@ export const useLoading = () => {
 export const useDbLocation = () => {
   const { dbLocation, setDbLocation } = useContext(SessionContext);
   return { dbLocation, setDbLocation };
-};
-
-export const useCommittedLocation = () => {
-  const { committedLocation, setCommittedLocation } =
-    useContext(SessionContext);
-  return { committedLocation, setCommittedLocation };
 };
