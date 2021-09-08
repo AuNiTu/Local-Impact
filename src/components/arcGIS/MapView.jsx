@@ -24,7 +24,6 @@ function MapView() {
 
   const { update } = useUpdate();
   const { session } = useSession();
-  const { committedLocation, setCommittedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
   const [changeLocation, setChangeLocation] = useState(true);
@@ -63,7 +62,7 @@ function MapView() {
   };
 
   const handlePut = () => {
-    update(session.username, dbLocation.longitude, dbLocation.latitude);
+    update(session.username, dbLocation[0], dbLocation[1]);
   };
 
   useEffect(() => {
@@ -73,10 +72,6 @@ function MapView() {
   useEffect(() => {
     setChangeLocation(false);
   }, [dbLocation]);
-
-  setTimeout(() => {
-    setCommittedLocation(false);
-  }, 4000);
 
   return (
     <>
@@ -94,12 +89,6 @@ function MapView() {
 
           <button onClick={handleSubmitGeoLocation}>Get My Location</button>
           <button onClick={handlePut}>Commit Location to My Account</button>
-
-          {committedLocation ? (
-            <h3 className={styles.locationUpdated}>Location Updated</h3>
-          ) : (
-            <p></p>
-          )}
         </div>
       </section>
 

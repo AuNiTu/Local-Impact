@@ -52,11 +52,6 @@ const Header = () => {
           </section>
         )}
       </header>
-      {loading ? (
-        <h2 className={styles.loadingHeader}>Loading...</h2>
-      ) : (
-        <section></section>
-      )}
     </section>
   );
 };
