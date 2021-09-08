@@ -26,7 +26,8 @@ export default function OneLogin() {
 
   const handleSubmitSignUp = async (event) => {
     event.preventDefault();
-    signup(username, password, location.longitude, location.latitude);
+    console.log(username, password, location[0], location[1]);
+    signup(username, password, location[0], location[1]);
     setUsername('');
     setPassword('');
   };
@@ -103,7 +104,7 @@ export default function OneLogin() {
           </section>
           {isSignUp ? (
             <section>
-              <button disabled={!location.longitude || !username || !password}>
+              <button disabled={!location[0] || !username || !password}>
                 🔑 Signup
               </button>
               <button onClick={handleSubmitGeoLocation}>🌐</button>
