@@ -12,7 +12,7 @@ function FireMap() {
     },
   });
 
-  return <div style={{ height: '60vh' }} ref={ref}></div>;
+  return <div style={{ height: '60vh', width: '80vw' }} ref={ref}></div>;
 }
 
 export default FireMap;
