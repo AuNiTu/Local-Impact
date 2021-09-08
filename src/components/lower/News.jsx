@@ -1,17 +1,11 @@
-import React from 'react';
-import {
-  useGeoLocation,
-  useSearchTerm,
-  useValue,
-  useNews,
-} from '../../state/Provider';
+import React, { useEffect } from 'react';
+import { useSearchTerm, useValue, useNews } from '../../state/Provider';
 import { fetchCoordinates } from '../../services/fetchLocation';
 import { useDbLocation } from '../../state/SessionProvider';
 import Article from './Article';
 import newsStyles from './newsStyles.css';
 
 export default function News() {
-  const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
   const { setSearchTerm } = useSearchTerm();
   const { value } = useValue();
@@ -19,29 +13,31 @@ export default function News() {
 
   let topic;
 
-  if (value == 0) {
-    topic = 'wildfires';
-  } else if (value == 1) {
-    topic = 'air+quality';
-  } else if (value == 2) {
-    topic = 'air+quality';
-  } else if (value == 3) {
-    topic = 'power+plants';
-  } else if (value == 4) {
-    topic = 'fuel';
+  switch (value) {
+    case 0:
+      topic = 'wildfires';
+      break;
+    case 1:
+      topic = 'air+quality';
+      break;
+    case 2:
+      topic = 'air+quality';
+      break;
+    case 3:
+      topic = 'power+plants';
+      break;
+    case 4:
+      topic = 'fuel';
+      break;
+    default:
+      break;
   }
 
-  let coordinates;
-
-  {
-    dbLocation.latitude
-      ? (coordinates = dbLocation.longitude + ',' + dbLocation.latitude)
-      : (coordinates = location.longitude + ',' + location.latitude);
-  }
-
-  fetchCoordinates(coordinates) // should be a useEffect but whatever do what I want
-    // .then((city) => console.log(topic + '+' + city));
-    .then((city) => setSearchTerm(topic + '+' + city));
+  useEffect(() => {
+    fetchCoordinates(dbLocation).then((city) =>
+      setSearchTerm(`${topic}+${city}`)
+    );
+  }, [dbLocation]);
 
   if (news.totalArticles === 0) {
     return <h4 className={newsStyles.newsList}>No News Is Good News</h4>;

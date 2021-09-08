@@ -54,7 +54,7 @@
             "after": true
           },
           "switch": {
-            "after": false
+            "after": true
           },
           "while": {
             "after": false

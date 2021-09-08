@@ -1,15 +1,5 @@
 /* eslint-disable react/jsx-key */
 import React, { useState, useEffect } from 'react';
-
-import FireMap from './map/Fire';
-import AirBlotchMap from './map/AirBlotch';
-import AirSensorMap from './map/AirSensor';
-import PowerPlantsMap from './map/Power';
-import AltFuelMap from './map/AltFuel';
-import FetchingMap from './map/NewLoc';
-import { webMaps } from './map/webmaps';
-import styles from '../content/Content.css';
-
 import { useValue, useGeoLocation, useAddress } from '../../state/Provider';
 import {
   useUpdate,
@@ -18,8 +8,17 @@ import {
   useCommittedLocation,
 } from '../../state/SessionProvider';
 
+import FireMap from './map/Fire';
+import AirBlotchMap from './map/AirBlotch';
+import AirSensorMap from './map/AirSensor';
+import PowerPlantsMap from './map/Power';
+import AltFuelMap from './map/AltFuel';
+import FetchingMap from './map/NewLoc';
+
+import { webMaps } from './map/webmaps';
+import styles from '../content/Content.css';
+
 function MapView() {
-  const { value, setValue } = useValue();
   const { location } = useGeoLocation();
   const { setAddress } = useAddress();
 
@@ -28,9 +27,10 @@ function MapView() {
   const { committedLocation, setCommittedLocation } = useCommittedLocation();
 
   const { dbLocation, setDbLocation } = useDbLocation();
-
-  const [changeLocation, setChangeLocation] = useState(false);
+  const [changeLocation, setChangeLocation] = useState(true);
   const [searchLoc, setSearchLoc] = useState();
+
+  const { value, setValue } = useValue();
   const [Maps] = useState([
     <FireMap />,
     <AirBlotchMap />,
@@ -38,8 +38,6 @@ function MapView() {
     <PowerPlantsMap />,
     <AltFuelMap />,
   ]);
-
-  const mapLoader = <FetchingMap />;
 
   const handleSubmitGeoLocation = (e) => {
     e.preventDefault();
@@ -49,7 +47,7 @@ function MapView() {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
 
-      setDbLocation({ longitude, latitude });
+      setDbLocation([longitude, latitude]);
     });
   };
 
@@ -93,12 +91,19 @@ function MapView() {
             />
             <button>Find</button>
           </form>
+
           <button onClick={handleSubmitGeoLocation}>Get My Location</button>
           <button onClick={handlePut}>Commit Location to My Account</button>
-          {committedLocation ? <h1 id="goaway" className={styles.locationUpdated}>Location Updated</h1> : <h1></h1>}
+
+          {committedLocation ? (
+            <h3 className={styles.locationUpdated}>Location Updated</h3>
+          ) : (
+            <p></p>
+          )}
         </div>
       </section>
-      {changeLocation ? mapLoader : Maps[value]}
+
+      {changeLocation ? <FetchingMap /> : Maps[value]}
 
       <section className={styles.mapSelectContainer}>
         <select

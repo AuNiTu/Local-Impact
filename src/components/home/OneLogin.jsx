@@ -7,9 +7,11 @@ export default function OneLogin() {
   const [username, setUsername] = useState('👤 username');
   const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
+
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
   const { loading } = useLoading();
+
   const signup = useSignup();
   const login = useLogin();
 
@@ -75,7 +77,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             <input
               type="password"
               name="password"
@@ -83,7 +86,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             {isSignUp ? (
               <section>
                 <input
