@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React, { useState, createContext, useContext, useEffect } from 'react';
 import { fetchAddress } from '../services/fetchLocation';
-import { fetchNews } from '../services/fetchNews';
+import { fetchNews, filterDuplicateNews } from '../services/fetchNews';
 
 const UserContext = createContext();
 
@@ -26,7 +26,8 @@ export const UserProvider = ({ children }) => {
 
   useEffect(() => {
     fetchNews(searchTerm)
-      .then((res) => setNews(res))
+      .then((res) => filterDuplicateNews(res.articles))
+      .then((filterNews) => setNews(filterNews))
       .finally(() => setLoading(false));
   }, [searchTerm]);
 

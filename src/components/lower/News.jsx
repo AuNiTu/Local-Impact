@@ -13,38 +13,30 @@ export default function News() {
 
   let topic;
 
-  switch (value) {
-    case 0:
-      topic = 'wildfires';
-      break;
-    case 1:
-      topic = 'air+quality';
-      break;
-    case 2:
-      topic = 'air+quality';
-      break;
-    case 3:
-      topic = 'power+plants';
-      break;
-    case 4:
-      topic = 'fuel';
-      break;
-    default:
-      break;
+  if (value == 0) {
+    topic = 'wildfires';
+  } else if (value == 1) {
+    topic = 'air+quality';
+  } else if (value == 2) {
+    topic = 'air+quality';
+  } else if (value == 3) {
+    topic = 'power+plants';
+  } else if (value == 4) {
+    topic = 'fuel';
   }
 
   useEffect(() => {
     fetchCoordinates(dbLocation).then((city) =>
       setSearchTerm(`${topic}+${city}`)
     );
-  }, [dbLocation]);
+  }, [dbLocation, topic]);
 
-  if (news.totalArticles === 0) {
+  if (news.length === 0) {
     return <h4 className={newsStyles.newsList}>No News Is Good News</h4>;
   }
 
-  const newsElements = news.articles.map((article) => (
-    <li className={newsStyles.newsList} key={article.title}>
+  const newsElements = news.map((article) => (
+    <li className={newsStyles.newsList} key={article.url}>
       <Article
         title={article.title}
         description={article.description}
