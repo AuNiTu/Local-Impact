@@ -29,6 +29,11 @@ export const SessionProvider = ({ children }) => {
       history.push('/map');
     } catch (err) {
       console.log(err);
+      if (
+        err.message ===
+        'duplicate key value violates unique constraint "users_username_key"'
+      )
+        alert('username already exists');
     } finally {
       setLoading(false);
     }
@@ -57,6 +62,7 @@ export const SessionProvider = ({ children }) => {
       history.push('/map');
     } catch (err) {
       console.log(err);
+      alert(err.message);
     } finally {
       setLoading(false);
     }
