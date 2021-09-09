@@ -1,5 +1,5 @@
 .General {
-  margin: 0 3rem;
+  margin: 0 auto;
   max-width: 50rem;
   display: flex;
   flex-direction: column;
@@ -9,7 +9,7 @@
 }
 
 .About {
-  margin-bottom: 7rem;
+  margin: 2rem 0;
   background-color: white;
   opacity: 65%;
   max-width: 50rem;
@@ -17,13 +17,28 @@
   padding: 0 1rem;
 }
 
-.Person {
+.Team {
   background-color: white;
   padding: 2rem;
   opacity: 80%;
   color: black;
   max-width: 50rem;
   border-radius: 1rem;
+}
+
+.Person {
+  display: flex;
+  gap: 1rem;
+}
+
+.Head {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links {
+  display: flex;
 }
 
 .icon {
