@@ -27,5 +27,6 @@ const Video = () => {
 
 };
 
+//migrated to AMAZON S3 1 year free tier. moved from cloudinary, they are expiring on sept 10 2021
 
 export default Video;
