@@ -8,3 +8,11 @@ export const fetchNews = async (search) => {
   return json;
 
 };
+
+export const filterDuplicateNews = (newsArray) => {
+  const filteredArray = newsArray.filter((article, index) => {
+    return newsArray.indexOf(article) === index;
+  });
+
+  return filteredArray;
+};

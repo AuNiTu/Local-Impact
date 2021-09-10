@@ -1,5 +1,6 @@
+/* eslint-disable no-console */
 /* eslint-disable react/prop-types */
-import React, { createContext, useContext, useState, useRef } from 'react';
+import React, { createContext, useContext, useState } from 'react';
 import { useHistory } from 'react-router';
 import {
   postLogin,
@@ -16,7 +17,6 @@ export const SessionProvider = ({ children }) => {
 
   const [session, setSession] = useState(null);
   const [loading, setLoading] = useState(false);
-  const [committedLocation, setCommittedLocation] = useState(false);
 
   const [dbLocation, setDbLocation] = useState({});
 
@@ -29,6 +29,11 @@ export const SessionProvider = ({ children }) => {
       history.push('/map');
     } catch (err) {
       console.log(err);
+      if (
+        err.message ===
+        'duplicate key value violates unique constraint "users_username_key"'
+      )
+        alert('username already exists');
     } finally {
       setLoading(false);
     }
@@ -37,7 +42,9 @@ export const SessionProvider = ({ children }) => {
   const update = async (username, longitude, latitude) => {
     setLoading(true);
     try {
-      await putLocation(username, longitude, latitude).then(() => setCommittedLocation(true));
+      await putLocation(username, longitude, latitude).then(() =>
+        alert('Database Gnomes have updated your preferred location')
+      );
     } catch (err) {
       console.log(err);
     } finally {
@@ -51,10 +58,11 @@ export const SessionProvider = ({ children }) => {
     try {
       setSession(await postLogin(username, password));
       const interLocation = await fetchUserLocation(username);
-      setDbLocation(interLocation);
+      setDbLocation([interLocation.longitude, interLocation.latitude]);
       history.push('/map');
     } catch (err) {
       console.log(err);
+      alert(err.message);
     } finally {
       setLoading(false);
     }
@@ -85,8 +93,6 @@ export const SessionProvider = ({ children }) => {
         logout,
         dbLocation,
         setDbLocation,
-        committedLocation,
-        setCommittedLocation
       }}
     >
       {children}
@@ -132,9 +138,4 @@ export const useLoading = () => {
 export const useDbLocation = () => {
   const { dbLocation, setDbLocation } = useContext(SessionContext);
   return { dbLocation, setDbLocation };
-};
-
-export const useCommittedLocation = () => {
-  const { committedLocation, setCommittedLocation } = useContext(SessionContext);
-  return { committedLocation, setCommittedLocation };
 };

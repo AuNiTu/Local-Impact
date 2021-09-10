@@ -9,7 +9,7 @@ const Footer = () => (
     >
       -Powered by ESRI, Environmental Systems Research Institute
     </a>
-    <span className={styles.Footer}>Coded by Austin, Nick, and Tucker-</span>
+    <span className={styles.Footer}>Coded by Austi, Nick, and Tucker-</span>
   </footer>
 );
 

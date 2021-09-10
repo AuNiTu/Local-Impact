@@ -7,9 +7,11 @@ export default function OneLogin() {
   const [username, setUsername] = useState('👤 username');
   const [password, setPassword] = useState('password');
   const [isSignUp, setSignUp] = useState(false);
+
   const { location, setLocation } = useGeoLocation();
   const { address, setAddress } = useAddress();
   const { loading } = useLoading();
+
   const signup = useSignup();
   const login = useLogin();
 
@@ -24,7 +26,8 @@ export default function OneLogin() {
 
   const handleSubmitSignUp = async (event) => {
     event.preventDefault();
-    signup(username, password, location.longitude, location.latitude);
+    console.log(username, password, location[0], location[1]);
+    signup(username, password, location[0], location[1]);
     setUsername('');
     setPassword('');
   };
@@ -75,7 +78,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             <input
               type="password"
               name="password"
@@ -83,7 +87,8 @@ export default function OneLogin() {
               onChange={handleChange}
               onFocus={(e) => clear(e)}
               required
-            ></input>
+            />
+
             {isSignUp ? (
               <section>
                 <input
@@ -99,7 +104,7 @@ export default function OneLogin() {
           </section>
           {isSignUp ? (
             <section>
-              <button disabled={!location.longitude || !username || !password}>
+              <button disabled={!location[0] || !username || !password}>
                 🔑 Signup
               </button>
               <button onClick={handleSubmitGeoLocation}>🌐</button>

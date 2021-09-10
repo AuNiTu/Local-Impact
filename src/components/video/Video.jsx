@@ -9,7 +9,7 @@ const Video = () => {
           muted 
           loop 
           autoPlay 
-          src="https://res.cloudinary.com/duwtuqr0p/video/upload/v1629916997/pexels-ron-lach-9036211_zstzae.mp4"
+          src="https://localimpactvideo.s3.us-west-2.amazonaws.com/local.mp4"
           style={{
             position:'fixed',
             width: '100%',
@@ -27,5 +27,6 @@ const Video = () => {
 
 };
 
+//migrated to AMAZON S3 1 year free tier. moved from cloudinary, they are expiring on sept 10 2021
 
 export default Video;

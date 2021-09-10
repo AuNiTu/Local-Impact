@@ -1,17 +1,11 @@
-import React from 'react';
-import {
-  useGeoLocation,
-  useSearchTerm,
-  useValue,
-  useNews,
-} from '../../state/Provider';
+import React, { useEffect } from 'react';
+import { useSearchTerm, useValue, useNews } from '../../state/Provider';
 import { fetchCoordinates } from '../../services/fetchLocation';
 import { useDbLocation } from '../../state/SessionProvider';
 import Article from './Article';
 import newsStyles from './newsStyles.css';
 
 export default function News() {
-  const { location } = useGeoLocation();
   const { dbLocation } = useDbLocation();
   const { setSearchTerm } = useSearchTerm();
   const { value } = useValue();
@@ -31,24 +25,18 @@ export default function News() {
     topic = 'fuel';
   }
 
-  let coordinates;
+  useEffect(() => {
+    fetchCoordinates(dbLocation).then((city) =>
+      setSearchTerm(`${topic}+${city}`)
+    );
+  }, [dbLocation, topic]);
 
-  {
-    dbLocation.latitude
-      ? (coordinates = dbLocation.longitude + ',' + dbLocation.latitude)
-      : (coordinates = location.longitude + ',' + location.latitude);
-  }
-
-  fetchCoordinates(coordinates) // should be a useEffect but whatever do what I want
-    // .then((city) => console.log(topic + '+' + city));
-    .then((city) => setSearchTerm(topic + '+' + city));
-
-  if (news.totalArticles === 0) {
+  if (news.length === 0) {
     return <h4 className={newsStyles.newsList}>No News Is Good News</h4>;
   }
 
-  const newsElements = news.articles.map((article) => (
-    <li className={newsStyles.newsList} key={article.title}>
+  const newsElements = news.map((article) => (
+    <li className={newsStyles.newsList} key={article.url}>
       <Article
         title={article.title}
         description={article.description}
