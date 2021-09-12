@@ -1,6 +1,6 @@
 import React from 'react';
 import OneLogin from '../home/OneLogin';
-import { useSession, useLogout, useLoading } from '../../state/SessionProvider';
+import { useSession, useLogout } from '../../state/SessionProvider';
 import styles from './headerStyles.css';
 
 import { useHistory } from 'react-router';
@@ -8,7 +8,6 @@ import { useHistory } from 'react-router';
 const Header = () => {
   const { session } = useSession();
   const logout = useLogout();
-  const { loading } = useLoading();
   const history = useHistory();
 
   const handleSubmit = (e) => {
@@ -24,8 +23,8 @@ const Header = () => {
     <section className={styles.headerContainer}>
       <header className={styles.Header}>
         <section>
-          <h1>Hack the Planet</h1>
-          <h4>Here to help discern the truth, with data & tech</h4>
+          <h1>Local Impact</h1>
+          <h4>Here to help discern the truth, with real data & technology</h4>
           <button value="/" onClick={handleClick}>
             🏛️ Home{' '}
           </button>
