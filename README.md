@@ -1,6 +1,6 @@
 # Local-Impact
 
-## Cited Sources:
+## Cited Sources & Attributions:
 ### ESRI (Environmental Science Research Institution):
 - https://www.esri.com/en-us/industries/environment-natural-resources/overview
 
