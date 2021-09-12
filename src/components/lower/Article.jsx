@@ -8,15 +8,15 @@ const Article = ({ title, description, publishedAt, image, url }) => {
   return (
     <section className={articleStyles.container}>
       <a href={url} target="_blank" rel="noreferrer">
-        <h3>{title}</h3>
-        <p>{date[0]}</p>
+        <h3>News: {title}</h3>
+        <p>Published: {date[0]}</p>
         <img
           className={articleStyles.articleImage}
           src={image}
           alt={title}
         ></img>
       </a>
-      <p>{description}</p>
+      <p>Description: {description}</p>
     </section>
   );
 };

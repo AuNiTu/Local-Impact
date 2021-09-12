@@ -37,6 +37,10 @@
 }
 
 .Header h4 {
+  position: relative;
+  top: -1.9rem;
+  margin: -5px;
+  margin-left: 2px;
   font-family: 'Times New Roman', Times, serif;
   font-weight: 100;
   font-style: italic;

@@ -6,11 +6,15 @@
   border-radius: 8px;
   margin-bottom: 5rem;
   padding: 0.5rem;
-  background-color: rgba(150, 226, 249, 0.8);
+  background-color: rgba(252, 250, 150, 0.8);
+  margin: 1rem;
 }
 
 .newsContainer {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 5rem;
+  justify-content: center;
 }
+
+
