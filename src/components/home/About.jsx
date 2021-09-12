@@ -35,7 +35,7 @@ const About = () => {
 
         <div className={styles.Person}>
           <p className={styles.Head}>
-            <h2>Nick</h2>
+            <h2>Nick Day</h2>
             <div className={styles.links}>
               <a href="https://github.com/NickDayFSD">
                 <img src="./GitHub.png" className={styles.icon} />
@@ -46,11 +46,11 @@ const About = () => {
             </div>
           </p>
           <p>
-            I&apos;m a fullstack software developer. I have great concern for
-            our environment and I want to use my technical prowess to make a
-            difference in our struggle against global warming. My experience
-            growing up with an artist and in technical and creative writing
-            gives me an eye for design and clean code.
+            As a fullstack software developer, I have great concern for our
+            environment want to use my technical prowess to make a difference in
+            our struggle against global warming. My experience growing up with
+            an artist and in technical and creative writing gives me an eye for
+            design and clean code.
           </p>
         </div>
 

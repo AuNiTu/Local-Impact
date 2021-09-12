@@ -12,8 +12,8 @@ const Home = () => {
       <main className={styles.MissionStatement}>
         <div>
           <p>
-            Hack the Planet is a web app designed to show you some of the
-            climate change factors in your area using ArcGIS maps from ESRI.
+            Local Impact is a web app designed to show you some of the climate
+            change factors in your area using ArcGIS maps from ESRI.
           </p>
           <p>
             How is your area impacting climate change? What can you do to make
