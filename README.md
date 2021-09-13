@@ -1,5 +1,10 @@
 # Local-Impact
 
+## Contributors/DM us 😉 :
+- Tucker: [Linkedin](https://www.linkedin.com/in/tuckerhoog/)
+- Nick: [Linkedin](https://www.linkedin.com/in/nickdayfsd/)
+- Austi: [Linkedin](https://github.com/austinxduong)
+
 ## Cited Sources & Attributions:
 ### ESRI (Environmental Science Research Institution):
 - https://www.esri.com/en-us/industries/environment-natural-resources/overview
