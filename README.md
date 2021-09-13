@@ -6,6 +6,8 @@
 - Austi: [Linkedin](https://www.linkedin.com/in/austinxduong/)
 
 ## Cited Sources & Attributions:
+####  🌎  🕊️  <em>Inspired && built on the shoulders of...</em>
+
 ### ESRI (Environmental Science Research Institution):
 - https://www.esri.com/en-us/industries/environment-natural-resources/overview
 
