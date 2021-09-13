@@ -6,6 +6,8 @@
 - Austi: [Linkedin](https://www.linkedin.com/in/austinxduong/)
 
 ## Cited Sources & Attributions:
+#### 🙏🏼 💖  <em>We want to give thanks to.... Esri Team, Alchemy Code Lab TAs, && family friends to help push/support/encourage us </em>
+
 ####  🌎  🕊️  <em>Inspired && built on the shoulders of...</em>
 
 ### ESRI (Environmental Science Research Institution):
