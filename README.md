@@ -3,7 +3,7 @@
 ## Contributors/DM us 😉 :
 - Tucker: [Linkedin](https://www.linkedin.com/in/tuckerhoog/)
 - Nick: [Linkedin](https://www.linkedin.com/in/nickdayfsd/)
-- Austi: [Linkedin](https://github.com/austinxduong)
+- Austi: [Linkedin](https://www.linkedin.com/in/austinxduong/)
 
 ## Cited Sources & Attributions:
 ### ESRI (Environmental Science Research Institution):
