@@ -9,7 +9,7 @@ const Video = () => {
           muted 
           loop 
           autoPlay 
-          src="https://localimpactvideo.s3.us-west-2.amazonaws.com/local.mp4"
+          src="local.mp4"
           style={{
             position:'fixed',
             width: '100%',
@@ -28,5 +28,6 @@ const Video = () => {
 };
 
 //migrated to AMAZON S3 1 year free tier. moved from cloudinary, they are expiring on sept 10 2021
+//updated sept 21. Amazon S3 free tier for month of sept, reached 85% free 5gb. hosting video locally
 
 export default Video;
