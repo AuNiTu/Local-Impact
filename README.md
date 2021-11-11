@@ -67,4 +67,5 @@ https://www.toyota.com/car-tips/driving-tips-getting-best-fuel-economy/'
 
 
 ## Project Management Board [Link Here:](https://miro.com/app/board/o9J_l3984Ic=/)
-![Domain Modelings](https://res.cloudinary.com/duwtuqr0p/image/upload/v1630054804/Wireframe_tr5sht.png "Domain Modeling")
+
+![Domain Modeling](https://user-images.githubusercontent.com/78833034/141224398-41c61267-52ce-4ec7-a376-a7936762f4b4.png)
