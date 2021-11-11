@@ -1,6 +1,6 @@
 # Local-Impact
 
-## Contributors/DM us 😉 :
+## Maintainers/DM us 😉 :
 - Tucker: [Linkedin](https://www.linkedin.com/in/tuckerhoog/)
 - Nick: [Linkedin](https://www.linkedin.com/in/nickdayfsd/)
 - Austi: [Linkedin](https://www.linkedin.com/in/austinxduong/)
