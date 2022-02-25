@@ -1,6 +1,15 @@
 # Local-Impact
 
-## Cited Sources:
+## Maintainers/DM us 😉 :
+- Tucker: [Linkedin](https://www.linkedin.com/in/tuckerhoog/)
+- Nick: [Linkedin](https://www.linkedin.com/in/nickdayfsd/)
+- Austi: [Linkedin](https://www.linkedin.com/in/austinxduong/)
+
+## Cited Sources & Attributions:
+#### 🙏🏼 💖  <em>We want to give thanks to.... Esri Team, Alchemy Code Lab Team, && family friends to help push/support/encourage us </em>
+
+####  🌎  🕊️  <em>Inspired && built on the shoulders of...</em>
+
 ### ESRI (Environmental Science Research Institution):
 - https://www.esri.com/en-us/industries/environment-natural-resources/overview
 
@@ -50,7 +59,13 @@ https://www.waze.com/
 - Toyota Tips: 
 https://www.toyota.com/car-tips/driving-tips-getting-best-fuel-economy/'
 
+## Media:
+
+- Source: www.pexels.com
+- Artist: https://www.pexels.com/@ron-lach
+
 
 
 ## Project Management Board [Link Here:](https://miro.com/app/board/o9J_l3984Ic=/)
-![Domain Modelings](https://res.cloudinary.com/duwtuqr0p/image/upload/v1630054804/Wireframe_tr5sht.png "Domain Modeling")
+
+![Domain Modeling](https://user-images.githubusercontent.com/78833034/141224398-41c61267-52ce-4ec7-a376-a7936762f4b4.png)
